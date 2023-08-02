@@ -1,0 +1,62 @@
+#=========================================================================
+# Cadence Innovus
+#=========================================================================
+# Author : Alex Carsello
+# Date   : April 17, 2023
+#
+
+fullname: Cadence Voltus Gen PG Lib
+category: Power Integrity
+description: Cadence Voltus generate power-ground (PG) library step
+name: cadence-voltus-gen-pg-library
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - adk
+  - design.lef
+  - design-merged.gds
+  - design.vcs.pg.v
+
+outputs:
+  - design.cl
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - echo {design_name} > instances.list
+  - v2cdl -i -v inputs/design.vcs.pg.v -o design.cdl
+  # Remove first 3 lines of CDL, because they're comments that cause errors
+  - sed -e '1,3d' < design.cdl > design_cleaned.cdl
+  - mv design_cleaned.cdl design.cdl
+  - voltus -overwrite -64 -nowin -init run_voltus_genpgl.tcl -log logs/run.log
+
+  # Outputs
+  - mkdir -p outputs && cd outputs
+  - ln -sf ../PGV/macros_{design_name}.cl design.cl
+
+#-------------------------------------------------------------------------
+# Parameters
+#-------------------------------------------------------------------------
+
+parameters:
+  design_name: undefined
+
+#-------------------------------------------------------------------------
+# Assertions
+#-------------------------------------------------------------------------
+
+preconditions:
+
+  - assert Tool( 'voltus' )                         # tool check
+  - assert File( 'inputs/adk' )                      # must exist
+
+postconditions:
+
+  - assert File( 'outputs/design.cl' )       # must exist
+
+

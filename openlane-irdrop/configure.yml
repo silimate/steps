@@ -1,0 +1,32 @@
+name: openlane-irdrop
+fullname: OpenLane IR Drop Analysis
+description: OpenLane IR drop analysis step
+category: Power Integrity
+
+inputs:
+  - design.def
+  - design.sdc
+
+outputs:
+  - reports
+  - metrics.csv
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  # Link inputs to OpenLANE
+  - mkdir -p $OPENLANE_DIR/designs/$DESIGN/
+  - ln -sf `pwd`/inputs/design.def $OPENLANE_DIR/0
+  - ln -sf `pwd`/inputs/design.sdc $OPENLANE_DIR/1
+  # Run step
+  - cd $OPENLANE_DIR
+  - make run_step OPENLANE_STEP=parasitics_sta
+  - cd -
+  # Link outputs from OpenLANE
+  - rm -f outputs/*
+  - ln -sf $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/logs/routing/1-resizer_design.log outputs/1-resizer_design.log
+  - ln -sf `find $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/results/routing -name "*.def"` outputs/design.def
+  - ln -sf $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/reports/routing/ outputs/reports
+  - ln -sf $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/reports/metrics.csv outputs/metrics.csv

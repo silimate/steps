@@ -1,0 +1,44 @@
+#=========================================================================
+# Verilator Compile Testbench
+#=========================================================================
+# Author : Akash Levy
+# Date   : July 18, 2023
+#
+
+fullname: Verilator Run Testbench
+category: RTL Simulation
+description: Runs open-source Verilator to compile testbench into executable
+name: open-verilator-compile
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - design.v
+  - testbench.cpp
+  - vectors.raw
+
+outputs:
+  - verilator.log
+  - run.vcd
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - verilator $verilator_options -cc inputs/design.v --exe inputs/testbench.cpp
+  - make -C obj_dir -f Vdesign.mk
+  - ./obj_dir/Vdesign inputs/vectors.raw > outputs/vectors.out
+  - mv run.vcd outputs
+
+#-------------------------------------------------------------------------
+# Parameters
+#-------------------------------------------------------------------------
+
+parameters:
+  verilator_options:
+    name: Verilator Options
+    value: -Wall -Wno-DECLFILENAME -Wno-UNUSEDSIGNAL --trace --x-assign unique --x-initial unique
+    optional: true

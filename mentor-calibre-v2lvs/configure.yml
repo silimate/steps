@@ -1,0 +1,34 @@
+#=========================================================================
+# Calibre v2lvs
+#=========================================================================
+# Author : James Thomas
+# Date   : Feb 9, 2021
+#
+
+fullname: Mentor Calibre Verilog to LVS
+category: Helper
+description: Run Mentor Calibre to convert verilog netlist to LVS SPICE netlist
+name: mentor-calibre-v2lvs
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+inputs:
+  - adk
+  - design.lvs.v
+
+outputs:
+  - design.lvs.spice
+
+#-------------------------------------------------------------------------
+# Parameters
+#-------------------------------------------------------------------------
+
+parameters:
+  design_name: undefined
+
+commands:
+  - mkdir -p outputs
+  - v2lvs -i -lsp inputs/adk/stdcells.spi -s inputs/adk/stdcells.spi -v inputs/design.lvs.v -o outputs/design.lvs.spice
+ 
+

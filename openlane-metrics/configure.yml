@@ -1,0 +1,15 @@
+name: openlane-metrics
+fullname: OpenLane Metrics
+description: Add OpenLane metrics.csv to metrics database
+category: Logs/Metrics
+
+inputs:
+  - metrics.csv
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  # POST metrics to metrics database
+  - python post_metrics.py

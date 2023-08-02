@@ -1,0 +1,46 @@
+name: openlane-placement
+fullname: OpenLane Placement
+description: OpenLane run placement step
+category: "PD: Placement"
+
+inputs:
+  - design.odb
+
+outputs:
+  - 1-global.log
+  - 2-gpl_sta.log
+  - 3-resizer.log
+  - 4-detailed.log
+  - 5-dpl_sta.log
+  - reports
+  - design.def
+  - design.odb
+  - design.nl.v
+  - design.pnl.v
+  - metrics.csv
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  # Link inputs to OpenLANE
+  - mkdir -p $OPENLANE_DIR/designs/$DESIGN/
+  - ln -sf `pwd`/inputs/design.odb $OPENLANE_DIR/0
+  # Run step
+  - cd $OPENLANE_DIR
+  - make run_step OPENLANE_STEP=placement
+  - cd -
+  # Link outputs from OpenLANE
+  - rm -f outputs/*
+  - ln -sf $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/logs/placement/1-global.log outputs/1-global.log
+  - ln -sf $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/logs/placement/2-gpl_sta.log outputs/2-gpl_sta.log
+  - ln -sf $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/logs/placement/3-resizer.log outputs/3-resizer.log
+  - ln -sf $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/logs/placement/4-detailed.log outputs/4-detailed.log
+  - ln -sf $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/logs/placement/5-dpl_sta.log outputs/5-dpl_sta.log
+  - ln -sf `find $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/results/placement -name "*.def"` outputs/design.def
+  - ln -sf `find $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/results/placement -name "*.odb"` outputs/design.odb
+  - ln -sf `find $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/results/placement -name "*.nl.v"` outputs/design.nl.v
+  - ln -sf `find $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/results/placement -name "*.pnl.v"` outputs/design.pnl.v
+  - ln -sf $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/reports/placement/ outputs/reports
+  - ln -sf $OPENLANE_DIR/designs/$DESIGN/runs/$FLOW_RUNID/$STEP_NAME/reports/metrics.csv outputs/metrics.csv
