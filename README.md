@@ -1,2 +1,2 @@
-# steps
+# Steps
 Silimate step repository
