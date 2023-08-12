@@ -9,6 +9,7 @@ fullname: Verilator Run Testbench
 category: RTL Simulation
 description: Runs open-source Verilator to compile testbench into executable
 name: open-verilator-compile
+container: hdlc/verilator
 
 #-------------------------------------------------------------------------
 # Inputs and Outputs
