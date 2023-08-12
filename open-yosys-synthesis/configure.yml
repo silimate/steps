@@ -9,6 +9,7 @@ fullname: Yosys Synthesis
 category: Logic Synthesis
 description: Runs open-source Yosys logic synthesis tool
 name: open-yosys-synthesis
+container: hdlc/verilator
 
 #-------------------------------------------------------------------------
 # Inputs and Outputs
