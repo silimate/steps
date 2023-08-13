@@ -44,5 +44,3 @@ commands:
 parameters:
   design_name: undefined
   clock_period: 2.0
-
-
