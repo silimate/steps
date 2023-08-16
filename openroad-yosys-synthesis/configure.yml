@@ -5,7 +5,7 @@ category: Logic Synthesis
 container: killruana/openroad:ubuntu22.04
 
 inputs:
-  - src
+  - src/
   - constraint.sdc
 
 outputs:
