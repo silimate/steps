@@ -37,3 +37,4 @@ commands:
   - export SDC_FILE=./constraint.sdc
   - cd /OpenROAD-flow-scripts/flow/
   - make synth RESULTS_DIR=$OUTPUTS_DIR REPORTS_DIR=$OUTPUTS_DIR LOG_DIR=$OUTPUTS_DIR
+  - make synth-report RESULTS_DIR=$OUTPUTS_DIR REPORTS_DIR=$OUTPUTS_DIR LOG_DIR=$OUTPUTS_DIR
