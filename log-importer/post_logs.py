@@ -12,4 +12,4 @@ logs = [{
 } for logfile in glob.glob("inputs/*") for line in open(logfile)]
 
 # Post metrics to API for storage in database
-requests.post("http://localhost/api/logs/", json=logs)
+print(requests.post("http://localhost/api/logs/", json=logs))
