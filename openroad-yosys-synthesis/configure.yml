@@ -1,0 +1,39 @@
+name: openroad-yosys-synthesis
+fullname: OpenROAD Yosys Synthesis
+description: OpenROAD logic synthesis using Yosys
+category: Logic Synthesis
+container: killruana/openroad:ubuntu22.04
+
+inputs:
+  - src
+  - constraint.sdc
+
+outputs:
+  - 1_1_yosys.log
+  - 1_synth.v
+  - synth_check.txt
+  - synth_stat.txt
+
+#-------------------------------------------------------------------------
+# Parameters
+#-------------------------------------------------------------------------
+
+parameters:
+  DESIGN_NAME: gcd
+  PLATFORM: nangate45
+
+  VERILOG_FILES: src/gcd.v
+  ABC_AREA: 1
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  # Link inputs to OpenROAD
+  - export OUTPUTS_DIR=`pwd`/outputs
+  - ln -s `pwd`/inputs/src /OpenROAD-flow-scripts/flow/
+  - ln -s `pwd`/inputs/constraint.sdc /OpenROAD-flow-scripts/flow/constraint.sdc
+  - export SDC_FILE=./constraint.sdc
+  - cd /OpenROAD-flow-scripts/flow/
+  - make synth RESULTS_DIR=$OUTPUTS_DIR REPORTS_DIR=$OUTPUTS_DIR LOG_DIR=$OUTPUTS_DIR
