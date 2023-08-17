@@ -35,6 +35,7 @@ commands:
   - export OUTPUTS_DIR=`pwd`/outputs
   - ln -s `pwd`/inputs/src /OpenROAD-flow-scripts/flow/
   - ln -s `pwd`/inputs/constraint.sdc /OpenROAD-flow-scripts/flow/constraint.sdc
+  - cp -f `pwd`/inputs/constraint.sdc /OpenROAD-flow-scripts/flow/designs/nangate45/gcd/constraint.sdc
   - export SDC_FILE=./constraint.sdc
   - cd /OpenROAD-flow-scripts/flow/
   - make synth RESULTS_DIR=$OUTPUTS_DIR REPORTS_DIR=$OUTPUTS_DIR LOG_DIR=$OUTPUTS_DIR
