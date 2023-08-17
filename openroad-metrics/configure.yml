@@ -1,6 +1,6 @@
-name: openlane-metrics
-fullname: OpenLane Metrics
-description: Add OpenLane metrics.csv to metrics database
+name: openroad-metrics
+fullname: OpenROAD Metrics
+description: Parse OpenROAD reports and post metrics to database
 category: Logs/Metrics
 
 inputs:
