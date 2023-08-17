@@ -11,8 +11,9 @@ inputs:
 outputs:
   - 1_1_yosys.log
   - 1_synth.v
-  - synth_check.txt
-  - synth_stat.txt
+  - synth_check.log
+  - synth_stat.rpt
+  - design.rpt
 
 #-------------------------------------------------------------------------
 # Parameters
@@ -38,3 +39,5 @@ commands:
   - cd /OpenROAD-flow-scripts/flow/
   - make synth RESULTS_DIR=$OUTPUTS_DIR REPORTS_DIR=$OUTPUTS_DIR LOG_DIR=$OUTPUTS_DIR
   - make do-synth-report RESULTS_DIR=$OUTPUTS_DIR REPORTS_DIR=$OUTPUTS_DIR LOG_DIR=$OUTPUTS_DIR > $OUTPUTS_DIR/design.rpt
+  - mv $OUTPUTS_DIR/synth_check.txt $OUTPUTS_DIR/synth_check.log
+  - mv $OUTPUTS_DIR/synth_stat.txt $OUTPUTS_DIR/synth_stat.rpt

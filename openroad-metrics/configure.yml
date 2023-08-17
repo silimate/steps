@@ -1,0 +1,16 @@
+name: openlane-metrics
+fullname: OpenLane Metrics
+description: Add OpenLane metrics.csv to metrics database
+category: Logs/Metrics
+
+inputs:
+  - design.rpt
+  - synth_stat.rpt
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  # POST metrics to metrics database
+  - python post_metrics.py
