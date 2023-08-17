@@ -2,7 +2,7 @@ name: openroad-yosys-synthesis
 fullname: OpenROAD Yosys Synthesis
 description: OpenROAD logic synthesis using Yosys
 category: Logic Synthesis
-container: killruana/openroad:ubuntu22.04
+container: silimate/openroad:latest
 
 inputs:
   - src
