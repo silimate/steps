@@ -31,7 +31,6 @@ parameters:
 
 commands:
   # Link inputs to OpenROAD
-  - apt-get install -y make
   - export OUTPUTS_DIR=`pwd`/outputs
   - ln -s `pwd`/inputs/src /OpenROAD-flow-scripts/flow/
   - ln -s `pwd`/inputs/constraint.sdc /OpenROAD-flow-scripts/flow/constraint.sdc
