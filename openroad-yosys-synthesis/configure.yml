@@ -5,7 +5,7 @@ category: Logic Synthesis
 container: silimate/openroad:latest
 
 inputs:
-  - src
+  - src/
   - constraint.sdc
 
 outputs:
