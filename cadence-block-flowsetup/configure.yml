@@ -1,0 +1,45 @@
+#=========================================================================
+# Cadence Flowkit Setup
+#=========================================================================
+# Author : Akash Levy
+# Date   : November 1, 2023
+# Notes  : This runs the Cadence Flowkit setup script to generate a flow.
+#          All features and tools are included in the flow and can be
+#          enabled/disabled by the user in a later step. 
+#=========================================================================
+
+fullname: Cadence Block Flow Setup
+category: Flow Setup
+description: Generate a Cadence block flow using Flowkit
+name: cadence-block-flowsetup
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+outputs:
+  - flow/
+  - flowsetup.log
+  - design_config.template
+  - eco_config.template
+  - flow_config.template
+  - genus_config.template
+  - innovus_config.template
+  - tempus_config.template
+  - voltus_config.template
+  - mmmc_config.template
+  - metric_config.yaml
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - genus -f START.tcl -log outputs/flowsetup.log
+
+#-------------------------------------------------------------------------
+# Parameters
+#-------------------------------------------------------------------------
+
+parameters:
+  features: report_inline opt_early_cts opt_signoff
