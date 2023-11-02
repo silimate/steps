@@ -12,6 +12,7 @@ fullname: Cadence Block Flow Setup
 category: Flow Setup
 description: Generate a Cadence block flow using Flowkit
 name: cadence-block-flowsetup
+container: silimate/eda-docker:latest
 
 #-------------------------------------------------------------------------
 # Inputs and Outputs
