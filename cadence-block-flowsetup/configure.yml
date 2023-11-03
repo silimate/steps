@@ -18,6 +18,11 @@ container: silimate/eda-docker:latest
 # Inputs and Outputs
 #-------------------------------------------------------------------------
 
+inputs:
+  - constraints/
+  - constraint_modes.tcl
+  - mmmc_config.pdk.tcl
+
 outputs:
   - flow/
   - flowsetup.log
@@ -28,7 +33,7 @@ outputs:
   - innovus_config.template
   - tempus_config.template
   - voltus_config.template
-  - mmmc_config.template
+  - mmmc_config.tcl
   - metric_config.yaml
 
 #-------------------------------------------------------------------------
@@ -36,6 +41,8 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
+  - cp inputs/mmmc_config.pdk.tcl outputs/mmmc_config.tcl
+  - cat inputs/constraint_modes.tcl >> outputs/mmmc_config.tcl
   - genus -no_gui -f START.tcl -log outputs/flowsetup.log
 
 #-------------------------------------------------------------------------
