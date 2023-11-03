@@ -3,7 +3,7 @@ write_flow_template -type block -tools {genus innovus quantus tempus voltus lec}
 
 # MMMC setup: add analysis views
 source outputs/mmmc_config.tcl
-set FH [open [outputs/mmmc_config.tcl] a]
+set FH [open outputs/mmmc_config.tcl a]
 puts $FH ""
 puts $FH "###############################################################################"
 puts $FH "### ANALYSIS VIEWS"
