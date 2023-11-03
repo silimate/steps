@@ -1,0 +1,8 @@
+name: input-files-from-disk
+fullname: File(s) from Disk
+description: Copy file(s) from disk
+category: Inputs
+
+commands:
+  - mkdir -p outputs
+  
