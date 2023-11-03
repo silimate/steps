@@ -1,12 +1,12 @@
 #=========================================================================
-# Cadence Genus Flow
+# Cadence Genus Synthesis Flow
 #=========================================================================
 # Author : Akash Levy
 # Date   : November 1, 2023
 # Notes  : This runs the Cadence Genus flow using the generated scripts
 #=========================================================================
 
-fullname: Cadence Block Flow Setup
+fullname: Cadence Genus Synthesis Flow
 category: Logic Synthesis
 description: Generate a Cadence block flow using Flowkit
 name: cadence-genus-flow
