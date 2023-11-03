@@ -5,6 +5,7 @@ category: Inputs
 
 commands:
   - "[[ -e /app/share/.ssh ]] && cp -rf /app/share/.ssh ~"
+  - "[[ -e ~/.ssh/id_rsa ]] && chmod 400 ~/.ssh/id_rsa"
   - git config --global safe.directory '*'
   - git clone -b $git_branch --single-branch --depth $git_clone_depth $git_url repo
   - cd repo; git checkout $git_commit; cd ..
