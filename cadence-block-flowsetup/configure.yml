@@ -19,12 +19,10 @@ container: silimate/eda-docker:latest
 #-------------------------------------------------------------------------
 
 inputs:
-  - constraints/
   - constraint_modes.tcl
   - mmmc_config.pdk.tcl
 
 outputs:
-  - constraints/
   - flow/
   - flowsetup.log
   - design_config.tcl
@@ -63,9 +61,6 @@ commands:
   -
   - # Generate the flow_config.tcl file
   - cp outputs/flow_config.template outputs/flow_config.tcl
-  -
-  - # Copy constraints across
-  - cp -r inputs/constraints outputs/constraints
 
 #-------------------------------------------------------------------------
 # Parameters
