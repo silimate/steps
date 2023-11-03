@@ -19,6 +19,7 @@ container: silimate/eda-docker:latest
 inputs:
   - constraints/
   - flow/
+  - rtl/
   - design_config.tcl
   - flow_config.tcl
   - genus_config.tcl
