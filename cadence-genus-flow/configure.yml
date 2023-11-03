@@ -20,6 +20,7 @@ inputs:
   - constraints/
   - flow/
   - design_config.tcl
+  - flow_config.tcl
   - genus_config.tcl
   - mmmc_config.tcl
   - metric_config.yaml
