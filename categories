@@ -1,9 +1,9 @@
 Inputs
 Linting
 RTL Simulation
+PDK Setup
 Flow Setup
 Logic Synthesis
-PD: Flow Setup
 PD: Floorplan
 PD: Power Setup
 PD: Placement
