@@ -41,17 +41,29 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
+  - # Generate the MMMC config file
   - cp inputs/mmmc_config.pdk.tcl outputs/mmmc_config.tcl
   - cat inputs/constraint_modes.tcl >> outputs/mmmc_config.tcl
+  - 
+  - # Generate the flow template
   - genus -no_gui -f START.tcl -log outputs/flowsetup.log
-  - sed 's/<< PLACEHOLDER: PROCESS NODE >>/'"$process"'/' outputs/genus_config.template > outputs/genus_config.tcl
+  -
+  - # Generate the genus_config.tcl file
+  - sed 's/<< PLACEHOLDER:\ PROCESS NODE >>/'"$process"'/' outputs/genus_config.template > outputs/genus_config.tcl
+  - 
+  - # Generate the design_config.tcl file
   - cp outputs/design_config.template outputs/design_config.tcl
-  - sed -i 's/<< PLACEHOLDER: PHYSICAL DATA LOAD OPTIONS >>//' outputs/design_config.tcl
-  - sed -i 's/<< PLACEHOLDER: DESIGN HDL LOAD OPTIONS >>/\-f inputs\/rtl\/design.f/' outputs/design_config.tcl
-  - sed -i 's/<< PLACEHOLDER: ELABORATION OPTIONS >>/'"$design"'/' outputs/design_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ PHYSICAL DATA LOAD OPTIONS >>//' outputs/design_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ DESIGN HDL LOAD OPTIONS >>/\-f inputs\/rtl\/design.f/' outputs/design_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ ELABORATION OPTIONS >>/'"$design"'/' outputs/design_config.tcl
   - sed -i 's/read_power_intent/# read_power_intent/' outputs/design_config.tcl # TODO: add in UPF support
-  - sed -i 's/<< PLACEHOLDER: DEF LOAD OPTIONS >>/\0f inputs\/def\/design.def/' outputs/design_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ DEF LOAD OPTIONS >>/\0f inputs\/def\/design.def/' outputs/design_config.tcl
+  -
+  - # Generate the flow_config.tcl file
   - cp outputs/flow_config.template outputs/flow_config.tcl
+  -
+  - # Copy constraints across
+  - cp -r inputs/constraints outputs/constraints
 
 #-------------------------------------------------------------------------
 # Parameters
