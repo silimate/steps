@@ -4,6 +4,7 @@ description: Get file(s) from a git repository
 category: Inputs
 
 commands:
+  - "[[ -e /app/share/.ssh ]] && cp -rf /app/share/.ssh ~/.ssh"
   - git config --global safe.directory '*'
   - git clone -b $git_branch --single-branch --depth $git_clone_depth $git_url repo
   - cd repo; git checkout $git_commit; cd ..
