@@ -36,11 +36,11 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
-  - genus -f START.tcl -log outputs/flowsetup.log
+  - genus -no_gui -f START.tcl -log outputs/flowsetup.log
 
 #-------------------------------------------------------------------------
 # Parameters
 #-------------------------------------------------------------------------
 
 parameters:
-  features: report_inline opt_early_cts opt_signoff
+  features: report_inline report_dynamic_ir opt_early_cts opt_signoff
