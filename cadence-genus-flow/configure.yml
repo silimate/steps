@@ -20,8 +20,12 @@ container: silimate/eda-docker:latest
 
 inputs:
   - constraints/
-  - constraint_modes.tcl
-  - mmmc_config.pdk.tcl
+  - flow/
+  - design_config.tcl
+  - genus_config.tcl
+  - mmmc_config.tcl
+  - metric_config.yaml
+  - run_flow.tcl
 
 outputs:
   - flow/
