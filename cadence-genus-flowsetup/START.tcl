@@ -5,3 +5,4 @@ write_flow_template -type block -tools {genus} -enable_feature $::env(features) 
 source inputs/mmmc_config.pdk.tcl
 puts "Generating the genus_config.tcl file..."
 exec sed "s/<< PLACEHOLDER: PROCESS NODE >>/$PROCESS/" outputs/genus_config.template > outputs/genus_config.tcl
+exec sed -i "N;s/\(# HDL attributes.*\)/\1\n  set_db init_hdl_search_path             inputs\/rtl\//" outputs/genus_config.tcl
