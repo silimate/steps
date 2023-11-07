@@ -8,10 +8,10 @@
 #          enabled/disabled by the user in a later step. 
 #=========================================================================
 
-fullname: Cadence Block Flow Setup
-category: Flow Setup
-description: Generate a Cadence block flow using Flowkit
-name: cadence-block-flowsetup
+fullname: Cadence Genus Flow Setup
+category: Logic Synthesis
+description: Generate a Cadence Genus flow using Flowkit
+name: cadence-genus-flowsetup
 container: silimate/eda-docker:latest
 
 #-------------------------------------------------------------------------
@@ -26,12 +26,8 @@ outputs:
   - flow/
   - flowsetup.log
   - design_config.tcl
-  - eco_config.template
   - flow_config.tcl
   - genus_config.tcl
-  - innovus_config.template
-  - tempus_config.template
-  - voltus_config.template
   - mmmc_config.tcl
   - metric_config.yaml
   - run_flow.tcl
@@ -65,4 +61,4 @@ commands:
 
 parameters:
   design: design_name
-  features:
+  features: dft_simple
