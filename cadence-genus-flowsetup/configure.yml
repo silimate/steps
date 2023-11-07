@@ -46,11 +46,12 @@ commands:
   - echo
   - echo Generating the design_config.tcl file...
   - cp outputs/design_config.template outputs/design_config.tcl
+  - sed -i 's/read_physical/# read_physical/' outputs/design_config.tcl # TODO: add in physical synthesis support
   - sed -i 's/<< PLACEHOLDER:\ PHYSICAL DATA LOAD OPTIONS >>//' outputs/design_config.tcl
   - sed -i 's/<< PLACEHOLDER:\ DESIGN HDL LOAD OPTIONS >>/\-f inputs\/rtl\/design.f/' outputs/design_config.tcl
   - sed -i 's/<< PLACEHOLDER:\ ELABORATION OPTIONS >>/'"$design"'/' outputs/design_config.tcl
   - sed -i 's/read_power_intent/# read_power_intent/' outputs/design_config.tcl # TODO: add in UPF support
-  - sed -i 's/<< PLACEHOLDER:\ DEF LOAD OPTIONS >>/\0f inputs\/def\/design.def/' outputs/design_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ POWER INTENT LOAD OPTIONS >>/\0f inputs\/upf\/design.upf/' outputs/design_config.tcl
   - echo
   - echo Generating the flow_config.tcl file...
   - cp outputs/flow_config.template outputs/flow_config.tcl
