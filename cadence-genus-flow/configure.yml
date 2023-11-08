@@ -28,6 +28,15 @@ inputs:
   - run_flow.tcl
 
 outputs:
+  - constraints/
+  - scripts/
+  - dbs/
+  - fv/
+  - genus.db
+  - design.v.gz
+  - design.g.gz
+  - design.lef.taf.gz
+  - design.change_names.rpt
   - synthesis.log
 
 #-------------------------------------------------------------------------
@@ -36,3 +45,15 @@ outputs:
 
 commands:
   - genus -no_gui -f START.tcl -log outputs/synthesis.log
+  - mkdir -p outputs/constraints/
+  - mkdir -p outputs/scripts/
+  - mv dbs/syn_generic.block_finish.db outputs/dbs/syn_generic.db
+  - mv dbs/syn_map.block_finish.db outputs/dbs/syn_map.db
+  - mv dbs/genus.db outputs/genus.db
+  - mv dbs/syn_opt/*.v.gz outputs/design.v.gz
+  - mv dbs/syn_opt/*.g.gz outputs/design.g.gz
+  - mv dbs/syn_opt/*.lec.taf.gz outputs/design.lec.taf.gz
+  - mv dbs/syn_opt/*.sdc outputs/constraints/
+  - mv dbs/syn_opt/*.tcl outputs/scripts/
+  - mv fv/ outputs/
+  - mv reports/syn_opt/design.change_names.rpt outputs/design.change_names.rpt
