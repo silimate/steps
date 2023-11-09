@@ -17,7 +17,7 @@ metrics = [{
   "run": os.environ["FLOW_RUNID"],
   "step": row["path"],
   "time": time.time() * 1000,
-  "metric": metric + (" (" + value.split()[1] + ")") if len(value.split()) > 1 else "", # Add units to metric name if available
+  "metric": metric + (" (" + value.split()[1] + ")" if len(value.split()) > 1 else ""), # Add units to metric name if available
   "value": float(value.split()[0])
 } for row in csv.DictReader(open("inputs/metrics.csv")) for metric, value in row.items() if (len(value.split()) > 0) and is_float(value.split()[0])] # Split to get units if available
 
