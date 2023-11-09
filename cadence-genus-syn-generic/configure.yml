@@ -24,14 +24,15 @@ inputs:
 outputs:
   - config/
   - flow/
+  - syn_generic.log
 
 #-------------------------------------------------------------------------
 # Commands
 #-------------------------------------------------------------------------
 
 commands:
-  - mv inputs/flow/run_flow.tcl inputs/
-  - mv inputs/config/*.tcl inputs/
-  - genus -no_gui -f START.tcl -log outputs/synthesis.log
+  - cp inputs/flow/run_flow.tcl inputs/
+  - cp inputs/config/*.tcl inputs/
+  - genus -no_gui -f START.tcl -log outputs/syn_generic.log
   - cp -r inputs/config outputs/config
   - cp -r inputs/flow outputs/flow

@@ -50,7 +50,7 @@ commands:
   - echo
   - echo Reorganizing outputs...
   - mv outputs/run_flow.tcl outputs/flow/
-  - mkdir -p outputs/config
+  - mkdir -p outputs/config/
   - mv outputs/*_config.* outputs/config/
 
 #-------------------------------------------------------------------------
