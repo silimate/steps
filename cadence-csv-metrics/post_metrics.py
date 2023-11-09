@@ -21,6 +21,7 @@ metrics = [{
   "value": float(value.split()[0])
 } for row in csv.DictReader(open("inputs/metrics.csv")) for metric, value in row.items() if (len(value.split()) > 0) and is_float(value.split()[0])] # Split to get units if available
 
+# Metrics to be posted
 print(metrics)
 
 # Post metrics to API for storage in database

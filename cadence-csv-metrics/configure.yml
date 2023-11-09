@@ -1,6 +1,6 @@
-name: metric-csv-importer
-fullname: CSV Metrics to Database
-description: Post CSV metrics to database
+name: cadence-csv-metrics
+fullname: Cadence Metrics
+description: Post Cadence CSV metrics to database
 category: Logs/Metrics
 
 inputs:
