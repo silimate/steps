@@ -22,7 +22,9 @@ inputs:
 
 outputs:
   - metrics.csv
+  - metrics.json
   - metrics.html
+  - metrics.vivid.html
   - worst_paths.gtd
   - ppa.txt
   - reports/

@@ -7,8 +7,7 @@ run_flow -flow report_synth
 write_metric -format csv -file outputs/metrics.csv
 write_metric -format json -file outputs/metrics.json
 report_metric -format html -file outputs/metrics.html
-report_metric -format vivid -file outputs/metrics.vivid
-report_metric -format excel -file outputs/metrics.xls
+report_metric -format vivid -file outputs/metrics.vivid.html
 
 # Timing breakdowns
 report_timing -nworst 10 -output_format gtd> outputs/worst_paths.gtd
