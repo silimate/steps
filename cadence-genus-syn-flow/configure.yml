@@ -3,13 +3,12 @@
 #=========================================================================
 # Author : Akash Levy
 # Date   : November 1, 2023
-# Notes  : This runs the Cadence Genus flow using the generated scripts
 #=========================================================================
 
 fullname: Cadence Genus Synthesis Flow
 category: Logic Synthesis
-description: Generate a Cadence block flow using Flowkit
-name: cadence-genus-flow
+description: Runs full Cadence Genus block synthesis flow
+name: cadence-genus-syn-flow
 container: silimate/eda-docker:latest
 
 #-------------------------------------------------------------------------
@@ -17,18 +16,17 @@ container: silimate/eda-docker:latest
 #-------------------------------------------------------------------------
 
 inputs:
+  - config/
   - constraints/
   - flow/
   - rtl/
-  - design_config.tcl
-  - flow_config.tcl
-  - genus_config.tcl
-  - mmmc_config.tcl
-  - metric_config.yaml
-  - run_flow.tcl
+  # - def/
+  # - design.upf
 
 outputs:
+  - config/
   - constraints/
+  - flow/
   - scripts/
   - dbs/
   - fv/
@@ -47,6 +45,7 @@ commands:
   - genus -no_gui -f START.tcl -log outputs/synthesis.log
   - mkdir -p outputs/constraints/
   - mkdir -p outputs/scripts/
+  - mkdir -p outputs/dbs/
   - mv dbs/syn_generic.block_finish.db outputs/dbs/syn_generic.db
   - mv dbs/syn_map.block_finish.db outputs/dbs/syn_map.db
   - mv dbs/genus.db outputs/genus.db
@@ -57,3 +56,5 @@ commands:
   - mv dbs/syn_opt/*.tcl outputs/scripts/
   - mv fv/ outputs/
   - mv reports/syn_opt/design.change_names.rpt outputs/design.change_names.rpt
+  - ln -sf inputs/config outputs/config
+  - ln -sf inputs/flow outputs/flow
