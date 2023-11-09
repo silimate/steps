@@ -1,0 +1,15 @@
+name: metric-csv-importer
+fullname: CSV Metrics to Database
+description: Post CSV metrics to database
+category: Logs/Metrics
+
+inputs:
+  - metrics.csv
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  # POST metrics to metrics database
+  - python post_metrics.py
