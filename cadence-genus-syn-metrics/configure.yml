@@ -22,6 +22,9 @@ inputs:
 
 outputs:
   - metrics.csv
+  - metrics.html
+  - worst_paths.gtd
+  - ppa.txt
   - reports/
   - syn_metrics.log
 
