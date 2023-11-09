@@ -1,14 +1,14 @@
 #=========================================================================
-# Cadence Genus Generic Synthesis
+# Cadence Genus Tech Mapping
 #=========================================================================
 # Author : Akash Levy
 # Date   : November 1, 2023
 #=========================================================================
 
-fullname: Cadence Genus Generic Synth
+fullname: Cadence Genus Tech Mapping
 category: Logic Synthesis
-description: Run generic synthesis using Cadence Genus
-name: cadence-genus-syn-generic
+description: Run technology mapping using Cadence Genus
+name: cadence-genus-syn-map
 container: silimate/eda-docker:latest
 
 #-------------------------------------------------------------------------
@@ -17,15 +17,14 @@ container: silimate/eda-docker:latest
 
 inputs:
   - config/
-  - constraints/
   - flow/
-  - rtl/
+  - syn_generic.db
 
 outputs:
   - config/
   - flow/
-  - syn_generic.db
-  - syn_generic.log
+  - syn_map.db
+  - syn_map.log
 
 #-------------------------------------------------------------------------
 # Commands
@@ -34,7 +33,7 @@ outputs:
 commands:
   - cp inputs/flow/run_flow.tcl inputs/
   - cp inputs/config/*.tcl inputs/
-  - genus -no_gui -f START.tcl -log outputs/syn_generic.log
+  - genus -no_gui -f START.tcl -log outputs/syn_map.log
   - cp -r inputs/config outputs/config
   - cp -r inputs/flow outputs/flow
   - mv dbs/* outputs/

@@ -20,8 +20,6 @@ inputs:
   - constraints/
   - flow/
   - rtl/
-  # - def/
-  # - design.upf
 
 outputs:
   - config/

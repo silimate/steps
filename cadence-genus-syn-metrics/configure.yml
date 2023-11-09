@@ -1,14 +1,14 @@
 #=========================================================================
-# Cadence Genus Generic Synthesis
+# Cadence Genus Metrics
 #=========================================================================
 # Author : Akash Levy
 # Date   : November 1, 2023
 #=========================================================================
 
-fullname: Cadence Genus Generic Synth
+fullname: Cadence Genus Synth Metrics
 category: Logic Synthesis
-description: Run generic synthesis using Cadence Genus
-name: cadence-genus-syn-generic
+description: Run metric reporting using Cadence Genus
+name: cadence-genus-syn-metrics
 container: silimate/eda-docker:latest
 
 #-------------------------------------------------------------------------
@@ -17,15 +17,12 @@ container: silimate/eda-docker:latest
 
 inputs:
   - config/
-  - constraints/
   - flow/
-  - rtl/
+  - genus.db
 
 outputs:
-  - config/
-  - flow/
-  - syn_generic.db
-  - syn_generic.log
+  - metrics.csv
+  - syn_metrics.log
 
 #-------------------------------------------------------------------------
 # Commands
@@ -34,7 +31,6 @@ outputs:
 commands:
   - cp inputs/flow/run_flow.tcl inputs/
   - cp inputs/config/*.tcl inputs/
-  - genus -no_gui -f START.tcl -log outputs/syn_generic.log
-  - cp -r inputs/config outputs/config
-  - cp -r inputs/flow outputs/flow
-  - mv dbs/* outputs/
+  - mv inputs/flow/run_flow.tcl inputs/
+  - mv inputs/config/*.tcl inputs/
+  - genus -no_gui -f START.tcl -log outputs/syn_metrics.log
