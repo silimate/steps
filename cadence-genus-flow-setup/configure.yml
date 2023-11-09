@@ -20,12 +20,8 @@ inputs:
   - mmmc_config.pdk.tcl
 
 outputs:
+  - config/
   - flow/
-  - design_config.tcl
-  - flow_config.tcl
-  - genus_config.tcl
-  - mmmc_config.tcl
-  - metric_config.yaml
   - setup_genus.log
 
 #-------------------------------------------------------------------------
@@ -52,8 +48,10 @@ commands:
   - echo Generating the flow_config.tcl file...
   - cp outputs/flow_config.template outputs/flow_config.tcl
   - echo
-  - echo Moving run_flow.tcl to flow/ directory
+  - echo Reorganizing outputs...
   - mv outputs/run_flow.tcl outputs/flow/
+  - mkdir -p outputs/config
+  - mv outputs/*_config.* outputs/config/
 
 #-------------------------------------------------------------------------
 # Parameters
