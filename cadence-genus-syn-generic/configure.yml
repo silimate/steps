@@ -1,0 +1,35 @@
+#=========================================================================
+# Cadence Genus Generic Library Synthesis
+#=========================================================================
+# Author : Akash Levy
+# Date   : November 1, 2023
+#=========================================================================
+
+fullname: Cadence Genus Generic Library Synthesis
+category: Logic Synthesis
+description: Run generic library synthesis using Cadence Genus
+name: cadence-genus-syn-generic
+container: silimate/eda-docker:latest
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - config/
+  - constraints/
+  - flow/
+  - rtl/
+
+outputs:
+  - config/
+  - flow/
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - genus -no_gui -f START.tcl -log outputs/synthesis.log
+  - cp -r inputs/config outputs/config
+  - cp -r inputs/flow outputs/flow

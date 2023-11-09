@@ -56,5 +56,5 @@ commands:
   - mv dbs/syn_opt/*.tcl outputs/scripts/
   - mv fv/ outputs/
   - mv reports/syn_opt/design.change_names.rpt outputs/design.change_names.rpt
-  - ln -sf inputs/config outputs/config
-  - ln -sf inputs/flow outputs/flow
+  - cp -r inputs/config outputs/config
+  - cp -r inputs/flow outputs/flow
