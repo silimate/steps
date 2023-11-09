@@ -22,8 +22,13 @@ inputs:
 
 outputs:
   - config/
+  - constraints/
   - flow/
-  - fv/
+  - scripts/
+  - design.v.gz
+  - design.g.gz
+  - design.lef.taf.gz
+  - design.change_names.rpt
   - syn_opt.db
   - syn_opt.log
 
@@ -32,10 +37,17 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
+  - cp -r inputs/config outputs/config
+  - cp -r inputs/flow outputs/flow
   - cp inputs/flow/run_flow.tcl inputs/
   - cp inputs/config/*.tcl inputs/
   - genus -no_gui -f START.tcl -log outputs/syn_opt.log
-  - cp -r inputs/config outputs/config
-  - cp -r inputs/flow outputs/flow
-  - mv dbs/* outputs/
-  - mv fv/ outputs/
+  - mkdir -p outputs/constraints/
+  - mkdir -p outputs/scripts/
+  - mv dbs/syn_opt.db outputs/syn_opt.db
+  - mv dbs/syn_opt/*.v.gz outputs/design.v.gz
+  - mv dbs/syn_opt/*.g.gz outputs/design.g.gz
+  - mv dbs/syn_opt/*.lec.taf.gz outputs/design.lec.taf.gz
+  - mv dbs/syn_opt/*.sdc outputs/constraints/
+  - mv dbs/syn_opt/*.tcl outputs/scripts/
+  - mv reports/syn_opt/design.change_names.rpt outputs/design.change_names.rpt

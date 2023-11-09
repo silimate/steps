@@ -22,6 +22,7 @@ inputs:
 
 outputs:
   - metrics.csv
+  - reports/
   - syn_metrics.log
 
 #-------------------------------------------------------------------------
@@ -32,3 +33,4 @@ commands:
   - cp inputs/flow/run_flow.tcl inputs/
   - cp inputs/config/*.tcl inputs/
   - genus -no_gui -f START.tcl -log outputs/syn_metrics.log
+  - mv reports/ outputs/

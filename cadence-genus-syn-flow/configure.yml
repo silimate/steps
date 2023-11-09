@@ -40,6 +40,8 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
+  - cp -r inputs/config outputs/config
+  - cp -r inputs/flow outputs/flow
   - cp inputs/flow/run_flow.tcl inputs/
   - cp inputs/config/*.tcl inputs/
   - genus -no_gui -f START.tcl -log outputs/synthesis.log
@@ -56,5 +58,3 @@ commands:
   - mv dbs/syn_opt/*.tcl outputs/scripts/
   - mv fv/ outputs/
   - mv reports/syn_opt/design.change_names.rpt outputs/design.change_names.rpt
-  - cp -r inputs/config outputs/config
-  - cp -r inputs/flow outputs/flow

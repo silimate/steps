@@ -32,10 +32,10 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
+  - cp -r inputs/config outputs/config
+  - cp -r inputs/flow outputs/flow
   - cp inputs/flow/run_flow.tcl inputs/
   - cp inputs/config/*.tcl inputs/
   - genus -no_gui -f START.tcl -log outputs/syn_map.log
-  - cp -r inputs/config outputs/config
-  - cp -r inputs/flow outputs/flow
   - mv dbs/* outputs/
   - mv fv/ outputs/
