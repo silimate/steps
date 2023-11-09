@@ -1,17 +1,14 @@
 #=========================================================================
-# Cadence Flowkit Setup
+# Cadence Genus Flow Setup
 #=========================================================================
 # Author : Akash Levy
 # Date   : November 1, 2023
-# Notes  : This runs the Cadence Flowkit setup script to generate a flow.
-#          All features and tools are included in the flow and can be
-#          enabled/disabled by the user in a later step. 
 #=========================================================================
 
 fullname: Cadence Genus Flow Setup
 category: Logic Synthesis
 description: Generate a Cadence Genus flow using Flowkit
-name: cadence-genus-flowsetup
+name: cadence-genus-flow-setup
 container: silimate/eda-docker:latest
 
 #-------------------------------------------------------------------------
@@ -24,13 +21,12 @@ inputs:
 
 outputs:
   - flow/
-  - flowsetup.log
   - design_config.tcl
   - flow_config.tcl
   - genus_config.tcl
   - mmmc_config.tcl
   - metric_config.yaml
-  - run_flow.tcl
+  - setup_genus.log
 
 #-------------------------------------------------------------------------
 # Commands
@@ -42,24 +38,27 @@ commands:
   - cat inputs/constraint_modes.tcl >> outputs/mmmc_config.tcl
   - echo
   - echo Generating the flow template...
-  - genus -no_gui -f START.tcl -log outputs/flowsetup.log
+  - genus -no_gui -f START.tcl -log outputs/setup_genus.log
   - echo
   - echo Generating the design_config.tcl file...
   - cp outputs/design_config.template outputs/design_config.tcl
   - sed -i 's/read_physical/# read_physical/' outputs/design_config.tcl # TODO: add in physical synthesis support
-  - sed -i 's/<< PLACEHOLDER:\ PHYSICAL DATA LOAD OPTIONS >>//' outputs/design_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ PHYSICAL DATA LOAD OPTIONS >>/inputs\/design.def/' outputs/design_config.tcl
   - sed -i 's/<< PLACEHOLDER:\ DESIGN HDL LOAD OPTIONS >>/\-f inputs\/rtl\/design.f/' outputs/design_config.tcl
   - sed -i 's/<< PLACEHOLDER:\ ELABORATION OPTIONS >>/'"$design"'/' outputs/design_config.tcl
   - sed -i 's/read_power_intent/# read_power_intent/' outputs/design_config.tcl # TODO: add in UPF support
-  - sed -i 's/<< PLACEHOLDER:\ POWER INTENT LOAD OPTIONS >>/\0f inputs\/upf\/design.upf/' outputs/design_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ POWER INTENT LOAD OPTIONS >>/inputs\/upf\/design.upf/' outputs/design_config.tcl
   - echo
   - echo Generating the flow_config.tcl file...
   - cp outputs/flow_config.template outputs/flow_config.tcl
+  - echo
+  - echo Moving run_flow.tcl to flow/ directory
+  - mv outputs/run_flow.tcl outputs/flow/
 
 #-------------------------------------------------------------------------
 # Parameters
 #-------------------------------------------------------------------------
 
 parameters:
-  design: design_name
+  design: top_design_name
   features: dft_simple
