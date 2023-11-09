@@ -1,11 +1,11 @@
 #=========================================================================
-# Cadence Genus Generic Library Synthesis
+# Cadence Genus Generic Synthesis
 #=========================================================================
 # Author : Akash Levy
 # Date   : November 1, 2023
 #=========================================================================
 
-fullname: Cadence Genus Generic Library Synthesis
+fullname: Cadence Genus Generic Synthesis
 category: Logic Synthesis
 description: Run generic library synthesis using Cadence Genus
 name: cadence-genus-syn-generic
