@@ -40,8 +40,8 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
-  - mv inputs/flow/run_flow.tcl inputs/
-  - mv inputs/config/*.tcl inputs/
+  - cp inputs/flow/run_flow.tcl inputs/
+  - cp inputs/config/*.tcl inputs/
   - genus -no_gui -f START.tcl -log outputs/synthesis.log
   - mkdir -p outputs/constraints/
   - mkdir -p outputs/scripts/
