@@ -1,0 +1,37 @@
+#=========================================================================
+# Update Clock Period Utility
+#=========================================================================
+# Author : Akash Levy
+# Date   : November 1, 2023
+#=========================================================================
+
+name: utility-update-clk-period
+fullname: Update Clock Period
+description: Update clock period inside .sdc constraint files
+category: Helper
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - constraints/
+
+outputs:
+  - constraints/
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - for file in inputs/constraints/*.sdc; do sed -i 's/set '"$clk_period_var_name"' .*/set '"$clk_period_var_name $period"'/g' $file; done
+  - cp -rf inputs/constraints/ outputs/
+
+#-------------------------------------------------------------------------
+# Parameters
+#-------------------------------------------------------------------------
+
+parameters:
+  clk_period_var_name: clk_period
+  period: $period
