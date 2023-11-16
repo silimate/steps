@@ -36,12 +36,11 @@ metrics = [{
   "run": os.environ["FLOW_RUNID"],
   "step": step,
   "time": time.time() * 1000,
-  "metric": open("inputs/metrics.json").read(),
-  "value": -98765.4321
+  "metrics": open("inputs/metrics.json").read(),
 }]
 
 # Metrics to be posted
 print(metrics)
 
 # Post metrics to API for storage in database
-print(requests.post("http://localhost/api/metrics/", json=metrics))
+print(requests.post("http://localhost/api/fullmetrics/", json=metrics))
