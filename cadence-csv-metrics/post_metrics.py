@@ -36,7 +36,7 @@ metrics = [{
   "run": os.environ["FLOW_RUNID"],
   "step": step,
   "time": time.time() * 1000,
-  "metric": open("inputs/metrics.json"),
+  "metric": open("inputs/metrics.json").read(),
   "value": -98765.4321
 }]
 
