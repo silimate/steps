@@ -12,6 +12,7 @@ category: Logs/Metrics
 
 inputs:
   - metrics.csv
+  - metrics.json
 
 #-------------------------------------------------------------------------
 # Commands
