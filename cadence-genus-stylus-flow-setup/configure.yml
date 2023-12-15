@@ -1,0 +1,64 @@
+#=========================================================================
+# Cadence Genus Stylus Flow Setup
+#=========================================================================
+# Author : Akash Levy
+# Date   : November 1, 2023
+#=========================================================================
+
+fullname: Cadence Genus Stylus Flow Setup
+category: Logic Synthesis
+description: Generate a Cadence Genus Stylus flow using Flowkit
+name: cadence-genus-stylus-flow-setup
+container: silimate/eda-docker:latest
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - config/
+  - constraint_modes.tcl
+  - mmmc_config.pdk.tcl
+
+outputs:
+  - config/
+  - flow/
+  - setup_genus.log
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - echo Generating the MMMC config file...
+  - cp inputs/mmmc_config.pdk.tcl outputs/mmmc_config.tcl
+  - cat inputs/constraint_modes.tcl >> outputs/mmmc_config.tcl
+  - echo
+  - echo Generating the flow template...
+  - genus -no_gui -f START.tcl -log outputs/setup_genus.log
+  - echo
+  - echo Generating the design_config.tcl file...
+  - cp outputs/design_config.template outputs/design_config.tcl
+  - sed -i 's/read_physical/# read_physical/' outputs/design_config.tcl # TODO: add in physical synthesis support
+  - sed -i 's/<< PLACEHOLDER:\ PHYSICAL DATA LOAD OPTIONS >>/inputs\/design.def/' outputs/design_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ DESIGN HDL LOAD OPTIONS >>/\-f inputs\/rtl\/design.f/' outputs/design_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ ELABORATION OPTIONS >>/'"$design"'/' outputs/design_config.tcl
+  - sed -i 's/read_power_intent/# read_power_intent/' outputs/design_config.tcl # TODO: add in UPF support
+  - sed -i 's/<< PLACEHOLDER:\ POWER INTENT LOAD OPTIONS >>/inputs\/upf\/design.upf/' outputs/design_config.tcl
+  - echo
+  - echo Generating the flow_config.tcl file...
+  - cp outputs/flow_config.template outputs/flow_config.tcl
+  - echo
+  - echo Reorganizing outputs...
+  - mv outputs/run_flow.tcl outputs/flow/
+  - mkdir -p outputs/config/
+  - mv outputs/*_config.* outputs/config/
+  - cp -rf inputs/config/* outputs/config/ # overwrite the default config files with the user's config files
+
+#-------------------------------------------------------------------------
+# Parameters
+#-------------------------------------------------------------------------
+
+parameters:
+  design: top_design_name
+  features: dft_simple

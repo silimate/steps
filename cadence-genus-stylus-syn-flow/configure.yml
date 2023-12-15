@@ -1,0 +1,59 @@
+#=========================================================================
+# Cadence Genus Stylus Synthesis Flow
+#=========================================================================
+# Author : Akash Levy
+# Date   : November 1, 2023
+#=========================================================================
+
+fullname: Cadence Genus Stylus Synthesis Flow
+category: Logic Synthesis
+description: Runs full Cadence Genus block synthesis flow
+name: cadence-genus-stylus-syn-flow
+container: silimate/eda-docker:latest
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - config/
+  - constraints/
+  - flow/
+  - rtl/
+
+outputs:
+  - config/
+  - constraints/
+  - flow/
+  - scripts/
+  - dbs/
+  - fv/
+  - genus.db
+  - design.v.gz
+  - design.g.gz
+  - design.lef.taf.gz
+  - design.change_names.rpt
+  - synthesis.log
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - cp -r inputs/config outputs/config
+  - cp -r inputs/flow outputs/flow
+  - cp inputs/config/*.tcl inputs/
+  - genus -no_gui -f START.tcl -log outputs/synthesis.log
+  - mkdir -p outputs/constraints/
+  - mkdir -p outputs/scripts/
+  - mkdir -p outputs/dbs/
+  - mv dbs/syn_generic.block_finish.db outputs/dbs/syn_generic.db
+  - mv dbs/syn_map.block_finish.db outputs/dbs/syn_map.db
+  - mv dbs/genus.db outputs/genus.db
+  - mv dbs/syn_opt/*.v.gz outputs/design.v.gz
+  - mv dbs/syn_opt/*.g.gz outputs/design.g.gz
+  - mv dbs/syn_opt/*.lec.taf.gz outputs/design.lec.taf.gz
+  - mv dbs/syn_opt/*.sdc outputs/constraints/
+  - mv dbs/syn_opt/*.tcl outputs/scripts/
+  - mv fv/ outputs/
+  - mv reports/syn_opt/design.change_names.rpt outputs/design.change_names.rpt
