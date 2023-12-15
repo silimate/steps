@@ -16,6 +16,7 @@ container: silimate/eda-docker:latest
 #-------------------------------------------------------------------------
 
 inputs:
+  - config/
   - constraint_modes.tcl
   - mmmc_config.pdk.tcl
 
@@ -52,6 +53,7 @@ commands:
   - mv outputs/run_flow.tcl outputs/flow/
   - mkdir -p outputs/config/
   - mv outputs/*_config.* outputs/config/
+  - cp -rf inputs/config/* outputs/config/ # overwrite the default config files with the user's config files
 
 #-------------------------------------------------------------------------
 # Parameters
