@@ -40,6 +40,7 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
+  - echo "" >> inputs/config/design_config.tcl
   - cp -r inputs/config outputs/config
   - cp -r inputs/flow outputs/flow
   - cp inputs/config/*.tcl inputs/
