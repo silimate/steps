@@ -5,7 +5,7 @@
 # Date   : November 1, 2023
 #=========================================================================
 
-fullname: Cadence Genus Stylus Flow Setup
+fullname: Cadence Genus Stylus Setup
 category: Logic Synthesis
 description: Generate a Cadence Genus Stylus flow using Flowkit
 name: cadence-genus-stylus-flow-setup
@@ -17,8 +17,6 @@ container: silimate/eda-docker:latest
 
 inputs:
   - config/
-  - constraint_modes.tcl
-  - mmmc_config.pdk.tcl
 
 outputs:
   - config/

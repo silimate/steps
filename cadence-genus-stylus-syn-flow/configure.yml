@@ -5,9 +5,9 @@
 # Date   : November 1, 2023
 #=========================================================================
 
-fullname: Cadence Genus Stylus Synthesis Flow
+fullname: Cadence Genus Stylus Syn Flow
 category: Logic Synthesis
-description: Runs full Cadence Genus block synthesis flow
+description: Runs full Cadence Genus block synthesis flow with Stylus
 name: cadence-genus-stylus-syn-flow
 container: silimate/eda-docker:latest
 
