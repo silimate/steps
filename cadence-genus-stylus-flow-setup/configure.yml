@@ -28,10 +28,6 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
-  - echo Generating the MMMC config file...
-  - cp inputs/mmmc_config.pdk.tcl outputs/mmmc_config.tcl
-  - cat inputs/constraint_modes.tcl >> outputs/mmmc_config.tcl
-  - echo
   - echo Generating the flow template...
   - genus -no_gui -f START.tcl -log outputs/setup_genus.log
   - echo
