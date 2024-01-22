@@ -1,5 +1,5 @@
 # Write out flow template
-write_flow_template -type block -tools {genus} -enable_feature $::env(features) -directory outputs
+write_flow_template -type block -tools {genus lec} -enable_feature $::env(features) -directory outputs
 
 # Insert process node and HDL search path into genus_config.tcl
 source inputs/mmmc_config.pdk.tcl
