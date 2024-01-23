@@ -34,7 +34,7 @@ commands:
   - cat inputs/constraint_modes.tcl >> outputs/mmmc_config.tcl
   - echo
   - echo Generating the flow template...
-  - genus -no_gui -f START.tcl -log outputs/setup.log
+  - genus -wait 10 -no_gui -f START.tcl -log outputs/setup.log
   - echo
   - echo Generating the design_config.tcl file...
   - cp outputs/design_config.template outputs/design_config.tcl

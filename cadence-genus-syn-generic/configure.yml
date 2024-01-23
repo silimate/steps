@@ -36,5 +36,5 @@ commands:
   - cp -r inputs/flow outputs/flow
   - cp inputs/flow/run_flow.tcl inputs/
   - cp inputs/config/*.tcl inputs/
-  - genus -no_gui -f START.tcl -log outputs/syn_generic.log
+  - genus -wait 10 -no_gui -f START.tcl -log outputs/syn_generic.log
   - mv dbs/* outputs/

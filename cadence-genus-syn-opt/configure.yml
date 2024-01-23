@@ -41,7 +41,7 @@ commands:
   - cp -r inputs/flow outputs/flow
   - cp inputs/flow/run_flow.tcl inputs/
   - cp inputs/config/*.tcl inputs/
-  - genus -no_gui -f START.tcl -log outputs/syn_opt.log
+  - genus -wait 10 -no_gui -f START.tcl -log outputs/syn_opt.log
   - mkdir -p outputs/constraints/
   - mkdir -p outputs/scripts/
   - mv dbs/syn_opt.db outputs/syn_opt.db

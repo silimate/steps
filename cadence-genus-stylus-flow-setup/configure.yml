@@ -29,7 +29,7 @@ outputs:
 
 commands:
   - echo Generating the flow template...
-  - genus -no_gui -f START.tcl -log outputs/setup_genus.log
+  - genus -wait 10 -no_gui -f START.tcl -log outputs/setup_genus.log
   - echo
   - echo Generating the flow_config.tcl file...
   - cp outputs/flow_config.template outputs/flow_config.tcl

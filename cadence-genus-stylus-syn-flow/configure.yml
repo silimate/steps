@@ -44,7 +44,7 @@ commands:
   - cp -r inputs/config outputs/config
   - cp -r inputs/flow outputs/flow
   - cp inputs/config/*.tcl inputs/
-  - genus -no_gui -f START.tcl -log outputs/synthesis.log
+  - genus -wait 10 -no_gui -f START.tcl -log outputs/synthesis.log
   - mkdir -p outputs/constraints/
   - mkdir -p outputs/scripts/
   - mkdir -p outputs/dbs/

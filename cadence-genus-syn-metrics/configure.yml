@@ -37,5 +37,5 @@ outputs:
 commands:
   - cp inputs/flow/run_flow.tcl inputs/
   - cp inputs/config/*.tcl inputs/
-  - genus -no_gui -f START.tcl -log outputs/syn_metrics.log
+  - genus -wait 10 -no_gui -f START.tcl -log outputs/syn_metrics.log
   - mv reports/ outputs/

@@ -10,7 +10,7 @@ report_metric -format html -file outputs/metrics.html
 report_metric -format vivid -file outputs/metrics.vivid.html
 
 # Timing breakdowns
-report_timing -nworst 10 -output_format gtd> outputs/worst_paths.gtd
+report_timing -nworst 10 -output_format gtd > outputs/worst_paths.gtd
 
 # PPA breakdowns
 set fp [open outputs/ppa.txt w]
