@@ -26,6 +26,7 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
+  - mkdir -p outputs
   - cd inputs/fv/
   - lec -no_gui -dofile lec.syn_map.do -log ../../outputs/lec.syn_map.log
   - lec -no_gui -dofile lec.syn_opt.do -log ../../outputs/lec.syn_opt.log
