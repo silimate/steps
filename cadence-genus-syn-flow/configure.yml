@@ -28,6 +28,7 @@ outputs:
   - scripts/
   - dbs/
   - fv/
+  - rtl/
   - genus.db
   - design.v.gz
   - design.g.gz
@@ -42,6 +43,7 @@ outputs:
 commands:
   - cp -r inputs/config outputs/config
   - cp -r inputs/flow outputs/flow
+  - cp -r inputs/rtl outputs/rtl
   - cp inputs/flow/run_flow.tcl inputs/
   - cp inputs/config/*.tcl inputs/
   - genus -wait 10 -no_gui -f START.tcl -log outputs/synthesis.log

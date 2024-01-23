@@ -17,6 +17,7 @@ container: silimate/eda-docker:latest
 
 inputs:
   - fv/
+  - rtl/
 
 outputs:
   - lec.log
