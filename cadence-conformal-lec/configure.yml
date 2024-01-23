@@ -16,6 +16,7 @@ container: silimate/eda-docker:latest
 #-------------------------------------------------------------------------
 
 inputs:
+  - dbs/
   - fv/
   - rtl/
 
@@ -29,5 +30,6 @@ outputs:
 commands:
   - mkdir -p outputs
   - cp -rf inputs/fv .
-  - lec -lp -nogui -dofile fv/*/lec.syn_map.do -log ../../outputs/lec.syn_map.log
-  - lec -lp -nogui -dofile fv/*/lec.syn_opt.do -log ../../outputs/lec.syn_opt.log
+  - cp -rf inputs/dbs .
+  - lec -lp -nogui -dofile fv/*/lec.syn_map.do -log outputs/lec.syn_map.log
+  - lec -lp -nogui -dofile fv/*/lec.syn_opt.do -log outputs/lec.syn_opt.log
