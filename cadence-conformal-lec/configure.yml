@@ -1,13 +1,13 @@
 #=========================================================================
-# Cadence Conformal LEC Flow
+# Cadence Conformal LEC
 #=========================================================================
 # Author : Akash Levy
 # Date   : November 1, 2023
 #=========================================================================
 
-fullname: Cadence Conformal LEC Flow
+fullname: Cadence Conformal LEC
 category: LEC
-description: Runs Cadence Conformal LEC flow
+description: Runs Cadence Conformal logic equivance check (LEC)
 name: cadence-conformal-lec
 container: silimate/eda-docker:latest
 
