@@ -1,14 +1,14 @@
 #=========================================================================
-# Cadence Genus Synthesis Flow
+# Cadence Conformal LEC Flow
 #=========================================================================
 # Author : Akash Levy
 # Date   : November 1, 2023
 #=========================================================================
 
-fullname: Cadence LEC Flow
+fullname: Cadence Conformal LEC Flow
 category: LEC
-description: Runs Cadence LEC flow
-name: cadence-lec-flow
+description: Runs Cadence Conformal LEC flow
+name: cadence-conformal-lec
 container: silimate/eda-docker:latest
 
 #-------------------------------------------------------------------------
@@ -16,8 +16,6 @@ container: silimate/eda-docker:latest
 #-------------------------------------------------------------------------
 
 inputs:
-  - config/
-  - flow/
   - fv/
 
 outputs:
@@ -28,6 +26,6 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
-  - cp inputs/flow/run_flow.tcl inputs/
-  - cp inputs/config/*.tcl inputs/
-  - genus -wait 10 -no_gui -f START.tcl -log outputs/lec.log
+  - cd inputs/fv/
+  - lec -no_gui -dofile lec.syn_map.do -log ../../outputs/lec.syn_map.log
+  - lec -no_gui -dofile lec.syn_opt.do -log ../../outputs/lec.syn_opt.log
