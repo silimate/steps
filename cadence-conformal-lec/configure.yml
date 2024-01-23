@@ -38,6 +38,6 @@ commands:
   - sed -i 's#dbs/syn_opt\.cdb/cmn/.*\.v\.gz#inputs/design.v.gz#' fv/*/lec.syn_opt.do
   - lec -lp -nogui -dofile fv/*/lec.syn_map.do -log logs/lec.syn_map.log
   - lec -lp -nogui -dofile fv/*/lec.syn_opt.do -log logs/lec.syn_opt.log
-  - mv logs/* outputs
+  - mv logs/*.log outputs
   - mv *.rpt outputs/rpts
-  - mv fv/*.ckpt outputs/
+  - mv fv/*/*.ckpt outputs/
