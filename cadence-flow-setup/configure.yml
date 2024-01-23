@@ -44,11 +44,11 @@ commands:
   - sed -i 's/<< PLACEHOLDER:\ ELABORATION OPTIONS >>/'"$design"'/' outputs/design_config.tcl
   - sed -i 's/read_power_intent/# read_power_intent/' outputs/design_config.tcl # TODO: add in UPF support
   - sed -i 's/<< PLACEHOLDER:\ POWER INTENT LOAD OPTIONS >>/inputs\/upf\/design.upf/' outputs/design_config.tcl
-  - sed -i 's/<< PLACEHOLDER:\ LEC SYN_MAP SCRIPT OPTIONS >>/'"$lec_options"'/' outputs/flow_config.tcl
-  - sed -i 's/<< PLACEHOLDER:\ LEC SYN_OPT SCRIPT OPTIONS >>/'"$lec_options"'/' outputs/flow_config.tcl
   - echo
   - echo Generating the flow_config.tcl file...
   - cp outputs/flow_config.template outputs/flow_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ LEC SYN_MAP SCRIPT OPTIONS >>/'"$lec_options"'/' outputs/flow_config.tcl
+  - sed -i 's/<< PLACEHOLDER:\ LEC SYN_OPT SCRIPT OPTIONS >>/'"$lec_options"'/' outputs/flow_config.tcl
   - echo
   - echo Reorganizing outputs...
   - mv outputs/run_flow.tcl outputs/flow/
