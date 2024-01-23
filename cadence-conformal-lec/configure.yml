@@ -21,15 +21,23 @@ inputs:
   - rtl/
 
 outputs:
-  - lec.log
+  - lec.syn_map.ckpt
+  - lec.syn_map.log
+  - lec.syn_opt.ckpt
+  - lec.syn_opt.log
+  - rpts/
 
 #-------------------------------------------------------------------------
 # Commands
 #-------------------------------------------------------------------------
 
 commands:
-  - mkdir -p outputs
+  - mkdir -p outputs/rpts
+  - mkdir -p logs
   - cp -Lrf inputs/fv .
   - sed -i 's#dbs/syn_opt\.cdb/cmn/.*\.v\.gz#inputs/design.v.gz#' fv/*/lec.syn_opt.do
-  - lec -lp -nogui -dofile fv/*/lec.syn_map.do
-  - lec -lp -nogui -dofile fv/*/lec.syn_opt.do
+  - lec -lp -nogui -dofile fv/*/lec.syn_map.do -log logs/lec.syn_map.log
+  - lec -lp -nogui -dofile fv/*/lec.syn_opt.do -log logs/lec.syn_opt.log
+  - mv logs/* outputs
+  - mv *.rpt outputs/rpts
+  - mv fv/*.ckpt outputs/
