@@ -31,5 +31,5 @@ commands:
   - mkdir -p outputs
   - cp -Lrf inputs/fv .
   - sed -i 's#dbs/syn_opt\.cdb/cmn/.*\.v\.gz#inputs/design.v.gz#' fv/*/lec.syn_opt.do
-  - lec -lp -nogui -dofile fv/*/lec.syn_map.do -log outputs/lec.syn_map.log
-  - lec -lp -nogui -dofile fv/*/lec.syn_opt.do -log outputs/lec.syn_opt.log
+  - lec -lp -nogui -dofile fv/*/lec.syn_map.do
+  - lec -lp -nogui -dofile fv/*/lec.syn_opt.do
