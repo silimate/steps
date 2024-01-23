@@ -8,7 +8,7 @@
 fullname: Cadence LEC Flow
 category: LEC
 description: Runs Cadence LEC flow
-name: cadence-genus-lec-flow
+name: cadence-lec-flow
 container: silimate/eda-docker:latest
 
 #-------------------------------------------------------------------------
