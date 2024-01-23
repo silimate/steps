@@ -61,5 +61,6 @@ commands:
 
 parameters:
   design: top_design_name
-  features: dft_simple
+  tools: genus lec
+  features: report_lec
   lec_options: -verbose -no_dft -no_exit
