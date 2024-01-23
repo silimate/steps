@@ -14,7 +14,7 @@
 # Date   : March 23, 2021
 
 fullname: Synopsys Formality
-category: Signoff
+category: LEC
 description: Runs Synopsys Formality to perform formal verification
 name: synopsys-formality-verification
 

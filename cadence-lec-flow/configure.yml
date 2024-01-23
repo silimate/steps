@@ -1,0 +1,33 @@
+#=========================================================================
+# Cadence Genus Synthesis Flow
+#=========================================================================
+# Author : Akash Levy
+# Date   : November 1, 2023
+#=========================================================================
+
+fullname: Cadence LEC Flow
+category: LEC
+description: Runs Cadence LEC flow
+name: cadence-genus-lec-flow
+container: silimate/eda-docker:latest
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - config/
+  - flow/
+  - fv/
+
+outputs:
+  - lec.log
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - cp inputs/flow/run_flow.tcl inputs/
+  - cp inputs/config/*.tcl inputs/
+  - genus -no_gui -f START.tcl -log outputs/lec.log
