@@ -1,3 +1,6 @@
+# Read flow settings
+read_flow inputs/config/setup.yaml
+
 # Source flows
 source inputs/flow/common_steps.tcl
 source inputs/flow/common_flows.tcl
