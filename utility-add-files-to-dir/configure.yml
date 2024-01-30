@@ -26,5 +26,5 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
-  - cp -rf directory/ outputs/
+  - cp -Lrf inputs/directory/ outputs/
   - cp -rf inputs/files_to_add/* outputs/directory/
