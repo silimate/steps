@@ -5,10 +5,10 @@
 # Date   : November 1, 2023
 #=========================================================================
 
-fullname: Cadence Genus Stylus Setup
-category: Logic Synthesis
-description: Generate a Cadence Genus Stylus flow using Flowkit
-name: cadence-genus-stylus-flow-setup
+fullname: Cadence Stylus Flow Setup
+category: Flow Setup
+description: Generate a Cadence Stylus flow using Flowkit
+name: cadence-stylus-flow-setup
 container: silimate/eda-docker:latest
 
 #-------------------------------------------------------------------------
@@ -44,4 +44,5 @@ commands:
 #-------------------------------------------------------------------------
 
 parameters:
-  features: dft_simple
+  tools: genus lec innovus
+  features: dft_simple report_static_ir report_dynamic_ir 
