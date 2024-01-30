@@ -1,6 +1,3 @@
-# Read flow settings
-read_flow inputs/config/setup.yaml
-
 # Source flows
 source inputs/flow/common_steps.tcl
 source inputs/flow/common_flows.tcl
@@ -12,4 +9,4 @@ source inputs/config/flow_config.tcl
 source inputs/config/design_config.tcl
 
 # Run synthesis flow
-run_flow -flow synthesis
+run_flow -flow synthesis -yaml inputs/config/setup.yaml
