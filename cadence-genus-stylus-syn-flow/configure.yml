@@ -5,7 +5,7 @@
 # Date   : November 1, 2023
 #=========================================================================
 
-fullname: Cadence Genus Stylus Syn Flow
+fullname: Cadence Genus Stylus Synthesis Flow
 category: Logic Synthesis
 description: Runs full Cadence Genus block synthesis flow with Stylus
 name: cadence-genus-stylus-syn-flow
