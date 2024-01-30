@@ -43,7 +43,9 @@ commands:
   - echo "" >> inputs/config/design_config.tcl
   - cp -r inputs/config outputs/config
   - cp -r inputs/flow outputs/flow
-  - cp inputs/config/*.tcl inputs/
+  - cp inputs/config/*.tcl .
+  - cp inputs/config/*.yaml .
+  - cp -r inputs/flow .
   - genus -wait 10 -no_gui -f START.tcl -log outputs/synthesis.log
   - mkdir -p outputs/constraints/
   - mkdir -p outputs/scripts/
