@@ -1,5 +1,5 @@
 # Read flow
-read_flow inputs/config/flow.yaml
+read_flow inputs/flow.yaml
 
 # Run synthesis flow
 run_flow -flow synthesis
