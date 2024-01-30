@@ -35,7 +35,7 @@ commands:
   - cp outputs/flow_config.template outputs/flow_config.tcl
   - echo
   - echo Removing references to Cadence scheduler...
-  - sed -i 's/schedule_[a-z_]+//' outputs/flow/common_flows.tcl
+  - sed -i 's/schedule_[a-z_]*//' outputs/flow/common_flows.tcl
   - echo
   - echo Reorganizing outputs...
   - mkdir -p outputs/config/
