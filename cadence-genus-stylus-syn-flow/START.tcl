@@ -2,6 +2,11 @@
 source inputs/flow/common_steps.tcl
 source inputs/flow/common_flows.tcl
 source inputs/flow/genus_steps.tcl
+if { [file exists inputs/flow/innovus_steps.tcl] } {
+  source inputs/flow/innovus_steps.tcl
+}
+
+# Source configs
 source inputs/config/genus_config.tcl
 if { [file exists inputs/config/innovus_config.tcl] } {
   source inputs/config/innovus_config.tcl
