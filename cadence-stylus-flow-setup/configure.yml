@@ -28,6 +28,7 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
+  - mkdir -p outputs/config/
   - echo Generating the flow template...
   - genus -wait 10 -no_gui -f START.tcl -log outputs/setup.log
   - echo
@@ -42,7 +43,6 @@ commands:
   - sed -i 's/schedule_[a-z_]*//' outputs/flow/common_flows.tcl
   - echo
   - echo Reorganizing outputs...
-  - mkdir -p outputs/config/
   - mv outputs/*_config.* outputs/config/
   - mv outputs/*.yaml_template outputs/config/
   - cp -rf inputs/config/* outputs/config/ # overwrite the default config files with the user's config files
