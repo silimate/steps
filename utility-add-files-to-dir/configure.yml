@@ -1,0 +1,30 @@
+#=========================================================================
+# Add Files to Directory
+#=========================================================================
+# Author : Akash Levy
+# Date   : November 1, 2023
+#=========================================================================
+
+name: utility-update-clk-period
+fullname: Update Clock Period
+description: Update clock period inside .sdc constraint files
+category: Helper
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - directory/
+  - files_to_add/
+
+outputs:
+  - directory/
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - cp -rf directory/ outputs/
+  - cp -rf inputs/files_to_add/* outputs/directory/
