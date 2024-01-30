@@ -5,9 +5,9 @@
 # Date   : November 1, 2023
 #=========================================================================
 
-name: utility-update-clk-period
-fullname: Update Clock Period
-description: Update clock period inside .sdc constraint files
+name: utility-add-files-to-dir
+fullname: Add Files to Directory
+description: Add files to a directory
 category: Helper
 
 #-------------------------------------------------------------------------
