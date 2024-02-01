@@ -35,8 +35,8 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
+  - yum install -y mesa-libGLU libpng12 openmotif compat-openssl10 xterm # TODO REMOVE!!!
   - checkSysConf # TODO REMOVE!!!
-  - yum install -y mesa-libGLU libpng12 openmotif # TODO REMOVE!!!
   - echo Copying inputs to outputs...
   - cp -r inputs/config/ outputs/config/
   - cp -r inputs/flow/ outputs/flow/
