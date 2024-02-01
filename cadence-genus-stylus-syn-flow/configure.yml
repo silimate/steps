@@ -25,7 +25,6 @@ inputs:
 outputs:
   - config/
   - flow/
-  - scripts/
   - dbs/
   - fv/
   - genus.db
@@ -56,7 +55,6 @@ commands:
   - echo
   - echo Reorganizing outputs...
   - mkdir -p outputs/constraints/
-  - mkdir -p outputs/scripts/
   - mkdir -p outputs/dbs/
   - mv dbs/syn_generic.block_finish.db outputs/dbs/syn_generic.db
   - mv dbs/syn_map.block_finish.db outputs/dbs/syn_map.db
