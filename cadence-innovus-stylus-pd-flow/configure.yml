@@ -20,7 +20,7 @@ inputs:
   - constraints/
   - flow/
   - pdk/
-  - genus.db
+  - floorplan/
 
 outputs:
   - config/

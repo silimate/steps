@@ -6,3 +6,4 @@ read_flow inputs/flow.yaml
 
 # Run implementation flow
 run_flow -flow implementation
+run_flow -flow block_finish

@@ -24,7 +24,6 @@ inputs:
 
 outputs:
   - config/
-  - constraints/
   - flow/
   - scripts/
   - dbs/
@@ -32,8 +31,6 @@ outputs:
   - genus.db
   - design.v.gz
   - design.g.gz
-  - design.lef.taf.gz
-  - design.change_names.rpt
   - synthesis.log
   - pdk/
   - rtl/
@@ -63,11 +60,7 @@ commands:
   - mkdir -p outputs/dbs/
   - mv dbs/syn_generic.block_finish.db outputs/dbs/syn_generic.db
   - mv dbs/syn_map.block_finish.db outputs/dbs/syn_map.db
-  - mv dbs/genus.db outputs/genus.db
-  - mv dbs/syn_opt/*.v.gz outputs/design.v.gz
-  - mv dbs/syn_opt/*.g.gz outputs/design.g.gz
-  - mv dbs/syn_opt/*.lec.taf.gz outputs/design.lec.taf.gz
-  - mv dbs/syn_opt/*.sdc outputs/constraints/
-  - mv dbs/syn_opt/*.tcl outputs/scripts/
+  - mv genus.cdb/syn/*.db outputs/genus.db
+  - mv genus.cdb/cmn/*.v.gz outputs/design.v.gz
+  - mv genus.cdb/cmn/*.g.gz outputs/design.g.gz
   - mv fv/ outputs/
-  - mv reports/syn_opt/design.change_names.rpt outputs/design.change_names.rpt
