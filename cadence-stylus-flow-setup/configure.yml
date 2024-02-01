@@ -31,14 +31,10 @@ commands:
   - echo
   - echo Generating the *_config.tcl and *.yaml files...
   - cp outputs/design_config.template outputs/config/design_config.tcl
-  - cp outputs/eco_config.template outputs/config/eco_config.tcl
   - cp outputs/flow_config.template outputs/config/flow_config.tcl
   - cp outputs/flow.yaml_template outputs/config/flow.yaml
-  - cp outputs/genus_config.template outputs/config/genus_config.tcl
-  - cp outputs/innovus_config.template outputs/config/innovus_config.tcl
   - cp outputs/setup.yaml_template outputs/config/setup.yaml
-  - cp outputs/tempus_config.template outputs/config/tempus_config.tcl
-  - cp outputs/voltus_config.template outputs/config/voltus_config.tcl
+  - for tool in $tools; do cp outputs/${tool}_config.template outputs/config/${tool}_config.tcl; done
   - echo
   - echo Removing references to Cadence scheduler...
   - sed -i 's/schedule_[a-z_]*//' outputs/flow/common_flows.tcl
