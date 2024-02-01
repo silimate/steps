@@ -46,5 +46,6 @@ commands:
   - cp inputs/config/*.yaml inputs/
   - echo
   - echo Running the physical design flow...
-  - innovus -stylus -wait 10 -no_gui -files START.tcl -log outputs/innovus.log
+  - genus -wait 10 -no_gui -f START.tcl -log outputs/innovus.log
   - mv dbs/innovus.db outputs/innovus.db
+  # - innovus -stylus -wait 10 -no_gui -files START.tcl -log outputs/innovus.log
