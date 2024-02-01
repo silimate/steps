@@ -39,7 +39,7 @@ commands:
   - cp -r inputs/pdk/ outputs/pdk/
   - echo
   - echo Setting up configs...
-  - cp -r inputs/constraints/ .
+  - cp -r inputs/floorplan/ .
   - cp inputs/config/*.tcl inputs/
   - cp inputs/config/*.yaml inputs/
   - echo
