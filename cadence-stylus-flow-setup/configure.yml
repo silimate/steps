@@ -45,4 +45,5 @@ commands:
 
 parameters:
   tools: genus lec innovus
-  flow_features: dft_simple report_static_ir report_dynamic_ir
+  enabled_features:
+  optional_features: dft_simple report_static_ir report_dynamic_ir
