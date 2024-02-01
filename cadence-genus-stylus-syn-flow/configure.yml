@@ -60,5 +60,5 @@ commands:
   - mv dbs/syn_map.block_finish.db outputs/dbs/syn_map.db
   - mv dbs/genus.cdb/syn/*.db outputs/genus.db
   - mv dbs/genus.cdb/cmn/*.v.gz outputs/design.v.gz
-  - mv dbs/genus.cdb/cmn/*.g.gz outputs/design.g.gz
+  - mv dbs/genus.cdb/cmn/syn_cmn/*.g.gz outputs/design.g.gz
   - mv fv/ outputs/
