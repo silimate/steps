@@ -35,8 +35,6 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
-  - yum install -y mesa-libGLU libpng12 openmotif compat-openssl10 xterm # TODO REMOVE!!!
-  - checkSysConf # TODO REMOVE!!!
   - echo Copying inputs to outputs...
   - cp -r inputs/config/ outputs/config/
   - cp -r inputs/flow/ outputs/flow/
@@ -48,5 +46,5 @@ commands:
   - cp inputs/config/*.yaml inputs/
   - echo
   - echo Running the physical design flow...
-  - innovus -wait 10 -no_gui -f START.tcl -log outputs/innovus.log
+  - innovus -wait 10 -no_gui -files START.tcl -log outputs/innovus.log
   - mv dbs/innovus.db outputs/innovus.db
