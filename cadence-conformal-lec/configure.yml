@@ -34,7 +34,7 @@ commands:
   - mkdir -p outputs/logs
   - mkdir -p outputs/rpts
   - cp -Lrf inputs/fv .
-  - for dofile in fv/*/*.do; sed -i 's#dbs/[a-z_]*\.cdb/cmn/.*\.v\.gz#inputs/design.v.gz#' $dofile; done
+  - for dofile in fv/*/*.do; do sed -i 's#dbs/[a-z_]*\.cdb/cmn/.*\.v\.gz#inputs/design.v.gz#' $dofile; done
   - for dofile in fv/*/*.do; do lec -lp -nogui -dofile $dofile -log outputs/logs/`basename $dofile`.log; done
   - mv fv/*/*.ckpt outputs/ckpts/
   - mv *.rpt outputs/rpts/
