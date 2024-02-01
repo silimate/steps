@@ -46,6 +46,8 @@ commands:
   - echo Copying inputs to outputs...
   - cp -r inputs/config outputs/config
   - cp -r inputs/flow outputs/flow
+  - cp -r inputs/pdk outputs/pdk
+  - cp -r inputs/rtl/ outputs/rtl/
   - cp -r inputs/constraints/ .
   - echo
   - echo Setting up inputs...

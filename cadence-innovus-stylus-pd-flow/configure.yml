@@ -35,10 +35,11 @@ outputs:
 #-------------------------------------------------------------------------
 
 commands:
+  - checkSysConf # TODO REMOVE!!!
+  - yum install motif-devel # TODO REMOVE!!!
   - echo Copying inputs to outputs...
   - cp -r inputs/config/ outputs/config/
   - cp -r inputs/flow/ outputs/flow/
-  - cp -r inputs/rtl/ outputs/rtl/
   - cp -r inputs/pdk/ outputs/pdk/
   - echo
   - echo Setting up configs...
