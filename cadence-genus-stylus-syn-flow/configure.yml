@@ -58,7 +58,7 @@ commands:
   - mkdir -p outputs/dbs/
   - mv dbs/syn_generic.block_finish.db outputs/dbs/syn_generic.db
   - mv dbs/syn_map.block_finish.db outputs/dbs/syn_map.db
-  - mv genus.cdb/syn/*.db outputs/genus.db
-  - mv genus.cdb/cmn/*.v.gz outputs/design.v.gz
-  - mv genus.cdb/cmn/*.g.gz outputs/design.g.gz
+  - mv dbs/genus.cdb/syn/*.db outputs/genus.db
+  - mv dbs/genus.cdb/cmn/*.v.gz outputs/design.v.gz
+  - mv dbs/genus.cdb/cmn/*.g.gz outputs/design.g.gz
   - mv fv/ outputs/

@@ -45,4 +45,3 @@ commands:
   - echo
   - echo Running the physical design flow...
   - innovus -stylus -wait 10 -no_gui -files START.tcl -log outputs/innovus.log
-  - mv dbs/innovus.db outputs/innovus.db
