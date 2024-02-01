@@ -36,7 +36,7 @@ outputs:
 
 commands:
   - checkSysConf # TODO REMOVE!!!
-  - yum install -y libpng12 openmotif # TODO REMOVE!!!
+  - yum install -y libglu libpng12 openmotif # TODO REMOVE!!!
   - echo Copying inputs to outputs...
   - cp -r inputs/config/ outputs/config/
   - cp -r inputs/flow/ outputs/flow/
