@@ -17,14 +17,12 @@ container: silimate/eda-docker:latest
 
 inputs:
   - config/
-  - constraints/
   - flow/
   - pdk/
   - floorplan/
 
 outputs:
   - config/
-  - constraints/
   - flow/
   - pdk/
   - innovus.db
