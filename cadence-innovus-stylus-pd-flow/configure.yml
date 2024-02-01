@@ -35,7 +35,9 @@ outputs:
 
 commands:
   - ldd --version
-  - yum install -y gcc
+  - yum -y update glibc
+  - yum install -y gdb
+  - checkSysConf
   - echo Copying inputs to outputs...
   - cp -r inputs/config/ outputs/config/
   - cp -r inputs/flow/ outputs/flow/
