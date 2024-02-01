@@ -27,4 +27,4 @@ outputs:
 
 commands:
   - cp -Lrf inputs/directory/ outputs/
-  - ln -sf inputs/files_to_add/* outputs/directory/
+  - cp -rf inputs/files_to_add/* outputs/directory/
