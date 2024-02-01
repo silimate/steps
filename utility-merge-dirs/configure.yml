@@ -1,0 +1,30 @@
+#=========================================================================
+# Merge Directories
+#=========================================================================
+# Author : Akash Levy
+# Date   : November 1, 2023
+#=========================================================================
+
+name: utility-merge-dirs
+fullname: Merge Directories
+description: Merge two directories
+category: Helper
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - directory1/
+  - directory2/
+
+outputs:
+  - directory/
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - cp -Lrf inputs/directory1/ outputs/
+  - cp -rf inputs/directory2/* outputs/directory/

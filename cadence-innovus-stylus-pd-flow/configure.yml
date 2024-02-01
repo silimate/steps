@@ -1,0 +1,51 @@
+#=========================================================================
+# Cadence Innovus PD Flow
+#=========================================================================
+# Author : Akash Levy
+# Date   : November 1, 2023
+#=========================================================================
+
+fullname: Cadence Innovus PD Flow
+category: Physical Design
+description: Runs full Cadence Innovus block physical design (PD) flow with Stylus
+name: cadence-innovus-stylus-pd-flow
+container: silimate/eda-docker:latest
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - config/
+  - constraints/
+  - flow/
+  - pdk/
+  - genus.db
+
+outputs:
+  - config/
+  - constraints/
+  - flow/
+  - pdk/
+  - innovus.db
+  - innovus.log
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - echo Copying inputs to outputs...
+  - cp -r inputs/config/ outputs/config/
+  - cp -r inputs/flow/ outputs/flow/
+  - cp -r inputs/rtl/ outputs/rtl/
+  - cp -r inputs/pdk/ outputs/pdk/
+  - echo
+  - echo Setting up configs...
+  - cp -r inputs/constraints/ .
+  - cp inputs/config/*.tcl inputs/
+  - cp inputs/config/*.yaml inputs/
+  - echo
+  - echo Running the physical design flow...
+  - innovus -wait 10 -no_gui -f START.tcl -log outputs/innovus.log
+  - mv dbs/innovus.db outputs/innovus.db

@@ -1,22 +1,19 @@
 #=========================================================================
-# Cadence Genus Stylus Flow Setup
+# Cadence Flow Setup
 #=========================================================================
 # Author : Akash Levy
 # Date   : November 1, 2023
 #=========================================================================
 
-fullname: Cadence Stylus Flow Setup
+fullname: Cadence Flow Setup
 category: Flow Setup
-description: Generate a Cadence Stylus flow using Flowkit
+description: Generate a Cadence Stylus flow
 name: cadence-stylus-flow-setup
 container: silimate/eda-docker:latest
 
 #-------------------------------------------------------------------------
 # Inputs and Outputs
 #-------------------------------------------------------------------------
-
-inputs:
-  - config/
 
 outputs:
   - config/
@@ -32,20 +29,19 @@ commands:
   - echo Generating the flow template...
   - genus -wait 10 -no_gui -f START.tcl -log outputs/setup.log
   - echo
-  - echo Generating the flow_config.tcl file...
-  - cp outputs/flow_config.template outputs/flow_config.tcl
-  - echo Generating the flow.yaml file...
+  - echo Generating the *_config.tcl and *.yaml files...
+  - cp outputs/design_config.template outputs/config/design_config.tcl
+  - cp outputs/eco_config.template outputs/config/eco_config.tcl
+  - cp outputs/flow_config.template outputs/config/flow_config.tcl
   - cp outputs/flow.yaml_template outputs/config/flow.yaml
-  - echo Generating the setup.yaml file...
+  - cp outputs/genus_config.template outputs/config/genus_config.tcl
+  - cp outputs/innovus_config.template outputs/config/innovus_config.tcl
   - cp outputs/setup.yaml_template outputs/config/setup.yaml
+  - cp outputs/tempus_config.template outputs/config/tempus_config.tcl
+  - cp outputs/voltus_config.template outputs/config/voltus_config.tcl
   - echo
   - echo Removing references to Cadence scheduler...
   - sed -i 's/schedule_[a-z_]*//' outputs/flow/common_flows.tcl
-  - echo
-  - echo Reorganizing outputs...
-  - mv outputs/*_config.* outputs/config/
-  - mv outputs/*.yaml_template outputs/config/
-  - cp -rf inputs/config/* outputs/config/ # overwrite the default config files with the user's config files
 
 #-------------------------------------------------------------------------
 # Parameters
@@ -53,4 +49,4 @@ commands:
 
 parameters:
   tools: genus lec innovus
-  features: dft_simple report_static_ir report_dynamic_ir 
+  flow_features: dft_simple report_static_ir report_dynamic_ir

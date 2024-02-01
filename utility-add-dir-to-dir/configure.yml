@@ -1,0 +1,30 @@
+#=========================================================================
+# Add Directory to Directory
+#=========================================================================
+# Author : Akash Levy
+# Date   : November 1, 2023
+#=========================================================================
+
+name: utility-add-dir-to-dir
+fullname: Add Dir to Directory
+description: Put one directory inside another directory
+category: Helper
+
+#-------------------------------------------------------------------------
+# Inputs and Outputs
+#-------------------------------------------------------------------------
+
+inputs:
+  - directory/
+  - dir_to_put_inside/
+
+outputs:
+  - directory/
+
+#-------------------------------------------------------------------------
+# Commands
+#-------------------------------------------------------------------------
+
+commands:
+  - cp -Lrf inputs/directory/ outputs/
+  - cp -Lrf inputs/dir_to_put_inside outputs/directory/

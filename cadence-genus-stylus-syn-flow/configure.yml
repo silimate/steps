@@ -35,19 +35,27 @@ outputs:
   - design.lef.taf.gz
   - design.change_names.rpt
   - synthesis.log
+  - pdk/
+  - rtl/
 
 #-------------------------------------------------------------------------
 # Commands
 #-------------------------------------------------------------------------
 
 commands:
-  - echo "" >> inputs/config/design_config.tcl
+  - echo Copying inputs to outputs...
   - cp -r inputs/config outputs/config
   - cp -r inputs/flow outputs/flow
   - cp -r inputs/constraints/ .
+  - echo
+  - echo Setting up inputs...
   - cp inputs/config/*.tcl inputs/
   - cp inputs/config/*.yaml inputs/
+  - echo
+  - echo Running the synthesis flow...
   - genus -wait 10 -no_gui -f START.tcl -log outputs/synthesis.log
+  - echo
+  - echo Reorganizing outputs...
   - mkdir -p outputs/constraints/
   - mkdir -p outputs/scripts/
   - mkdir -p outputs/dbs/
