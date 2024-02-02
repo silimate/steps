@@ -17,4 +17,3 @@ write_spef > outputs/design.spef
 write_name_mapping -to_file outputs/design.namemap
 write_lib -lib outputs/design
 write_set_load > outputs/design.loads
-write_reports -directory outputs/rpts
