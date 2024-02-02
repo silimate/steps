@@ -14,4 +14,8 @@ write_snapshot -directory outputs -tag final
 write_design -innovus -basename outputs/design
 write_sdf > outputs/design.sdf
 write_spef > outputs/design.spef
-write_name_mapping -hdl -hierarchical -initial -map_pins all -print_deleted -output output design.namemap
+write_name_mapping -to_file design.namemap
+write_lib -lib outputs/design.lib
+write_annotated_transition -include_output_pins outputs/design.trans
+write_set_load > outputs/design.loads
+write_reports -directory outputs/rpts
