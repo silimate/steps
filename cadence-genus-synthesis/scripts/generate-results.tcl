@@ -16,4 +16,3 @@ write_sdf > outputs/design.sdf
 write_spef > outputs/design.spef
 write_name_mapping -to_file outputs/design.namemap
 write_lib -lib outputs/design
-write_set_load > outputs/design.loads

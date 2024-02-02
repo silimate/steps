@@ -28,7 +28,6 @@ outputs:
   - design.namemap
   - design.db
   - design.lib
-  - design.loads
   - design.metrics.json
   - fv/
 
