@@ -6,7 +6,9 @@
 #
 # Set up variables for this specific ASIC design kit
 
-source -echo -verbose "inputs/adk/adk.tcl"
+if {[file exists "inputs/adk/adk.tcl"]} {
+  source -echo -verbose "inputs/adk/adk.tcl"
+}
 
 set_attr library     $vars(libs_typical,timing)
 set_attr lef_library $vars(lef_files)
