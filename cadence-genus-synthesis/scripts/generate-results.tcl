@@ -10,10 +10,8 @@ if { $uniquify_with_design_name == True } {
   update_names -subdesign -force -prefix ${design_name}_
 }
 
-write_snapshot -directory results_syn -tag final
-write_design -innovus -basename results_syn/syn_out
-write_sdf > results_syn/syn_out.sdf
-write_spef > results_syn/syn_out.spef
-
-write_name_mapping
-
+write_snapshot -directory outputs -tag final
+write_design -innovus -basename outputs/design
+write_sdf > outputs/design.sdf
+write_spef > outputs/design.spef
+write_name_mapping -hdl -hierarchical -initial -map_pins all -print_deleted -output output design.namemap
