@@ -29,7 +29,6 @@ outputs:
   - design.db
   - design.lib
   - design.loads
-  - design.trans
   - design.metrics.json
   - fv/
 

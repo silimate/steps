@@ -16,6 +16,5 @@ write_sdf > outputs/design.sdf
 write_spef > outputs/design.spef
 write_name_mapping -to_file outputs/design.namemap
 write_lib -lib outputs/design
-write_annotated_transition -include_output_pins outputs/design.trans
 write_set_load > outputs/design.loads
 write_reports -directory outputs/rpts
