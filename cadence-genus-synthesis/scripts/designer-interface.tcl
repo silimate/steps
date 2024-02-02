@@ -126,7 +126,7 @@ if {[llength $list_libs_wc] > 0} {
 
 set vars(lef_files) \
 [join "
-    $vars(adk_dir)/rtk-tech.lef
+    [lsort [glob -nocomplain $vars(adk_dir)/rtk-tech.lef]]
     [lsort [glob -nocomplain $vars(adk_dir)/stdcells.lef]]
     [lsort [glob -nocomplain $vars(adk_dir)/stdcells-pm.lef]]
     [lsort [glob -nocomplain $vars(adk_dir)/*.lef]]
