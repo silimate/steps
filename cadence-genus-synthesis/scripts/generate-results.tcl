@@ -10,12 +10,12 @@ if { $uniquify_with_design_name == True } {
   update_names -subdesign -force -prefix ${design_name}_
 }
 
-write_snapshot -directory outputs -tag final
+write_snapshot -directory outputs -tag design
 write_design -innovus -basename outputs/design
 write_sdf > outputs/design.sdf
 write_spef > outputs/design.spef
-write_name_mapping -to_file design.namemap
-write_lib -lib outputs/design.lib
+write_name_mapping -to_file outputs/design.namemap
+write_lib -lib outputs/design
 write_annotated_transition -include_output_pins outputs/design.trans
 write_set_load > outputs/design.loads
 write_reports -directory outputs/rpts

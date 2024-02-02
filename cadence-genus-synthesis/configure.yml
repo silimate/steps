@@ -21,7 +21,6 @@ inputs:
   - constraints.tcl
 
 outputs:
-  - adk/
   - design.v
   - design.sdc
   - design.sdf
@@ -45,7 +44,6 @@ commands:
   - mv outputs/design.*.sdc outputs/design.sdc
   - mv outputs/*.db outputs/design.db
   - mv fv outputs
-  - ln -sf inputs/adk outputs/
 
 #-------------------------------------------------------------------------
 # Parameters
