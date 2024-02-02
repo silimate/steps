@@ -29,6 +29,7 @@ outputs:
   - design.db
   - design.lib
   - design.metrics.json
+  - rpts/
   - fv/
 
 #-------------------------------------------------------------------------
