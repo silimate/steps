@@ -27,6 +27,8 @@ outputs:
   - design.sdf
   - design.spef
   - design.namemap
+  - design.db
+  - metrics.json
 
 #-------------------------------------------------------------------------
 # Commands
@@ -34,12 +36,15 @@ outputs:
 
 commands:
   - genus -no_gui -f START.tcl -log logs/genus.log
-  - mkdir -p outputs && cd outputs
-  - ln -sf ../results_syn/syn_out.v design.v
-  - ln -sf ../results_syn/syn_out._default_constraint_mode_.sdc design.sdc
-  - ln -sf ../results_syn/syn_out.sdf design.sdf
-  - ln -sf ../results_syn/syn_out.spef design.spef
-  - ln -sf ../name_map.rpt design.namemap
+  - mkdir -p outputs/rpts
+  - mv results_syn/*.rpt outputs/rpts
+  - mv results_syn/syn_out.v outputs/design.v
+  - mv results_syn/syn_out.*.sdc outputs/design.sdc
+  - mv results_syn/syn_out.sdf outputs/design.sdf
+  - mv results_syn/syn_out.spef outputs/design.spef
+  - mv results_syn/syn_out.metrics.json outputs/metrics.json
+  - mv results_syn/*.db outputs/design.db
+  - mv outputs/name_map.rpt outputs/design.namemap
 
 #-------------------------------------------------------------------------
 # Parameters
