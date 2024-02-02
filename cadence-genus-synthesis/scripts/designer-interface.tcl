@@ -55,17 +55,17 @@ set vars(adk_dir) inputs/adk
 # Typical-case libraries
 
 # Note: For backward compatibility, keep the following postfix-free libraries:
-# stdcells.lib, stdcells-lvt.lib, stdcells-ulvt.lib, stdcells-pm.lib, iocells.lib
+# stdcells.lib.gz, stdcells-lvt.lib.gz, stdcells-ulvt.lib.gz, stdcells-pm.lib.gz, iocells.lib.gz
 set list_libs_tt \
     [join "
-        [lsort [glob -nocomplain $vars(adk_dir)/stdcells.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-lvt.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-ulvt.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-pm.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/iocells.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/*-typical*.lib]]
-        [lsort [glob -nocomplain inputs/*tt*.lib]]
-        [lsort [glob -nocomplain inputs/*TT*.lib]]
+        [lsort [glob -nocomplain $vars(adk_dir)/stdcells.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-lvt.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-ulvt.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-pm.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/iocells.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*-typical*.lib.gz]]
+        [lsort [glob -nocomplain inputs/*tt*.lib.gz]]
+        [lsort [glob -nocomplain inputs/*TT*.lib.gz]]
     "]
 
 if {[llength $list_libs_tt] > 0} {
@@ -86,9 +86,9 @@ if {[llength $list_libs_tt] > 0} {
 
 set list_libs_bc \
     [join "
-        [lsort [glob -nocomplain $vars(adk_dir)/*-bc*.lib]]
-        [lsort [glob -nocomplain inputs/*ff*.lib]]
-        [lsort [glob -nocomplain inputs/*FF*.lib]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*-bc*.lib.gz]]
+        [lsort [glob -nocomplain inputs/*ff*.lib.gz]]
+        [lsort [glob -nocomplain inputs/*FF*.lib.gz]]
     "]
 
 if {[llength $list_libs_bc] > 0} {
@@ -108,9 +108,9 @@ if {[llength $list_libs_bc] > 0} {
 
 set list_libs_wc \
     [join "
-        [lsort [glob -nocomplain $vars(adk_dir)/*-wc*.lib]]
-        [lsort [glob -nocomplain inputs/*ss*.lib]]
-        [lsort [glob -nocomplain inputs/*SS*.lib]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*-wc*.lib.gz]]
+        [lsort [glob -nocomplain inputs/*ss*.lib.gz]]
+        [lsort [glob -nocomplain inputs/*SS*.lib.gz]]
     "]
 
 if {[llength $list_libs_wc] > 0} {
