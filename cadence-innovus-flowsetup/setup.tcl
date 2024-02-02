@@ -76,14 +76,14 @@ set vars(library_sets)        "libs_typical"
 
 set list_libs_tt \
     [join "
-        [lsort [glob -nocomplain $vars(adk_dir)/stdcells.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-lvt.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-ulvt.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-pm.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/iocells.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/*-typical*.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/*tt*.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/*TT*.lib]]
+        [lsort [glob -nocomplain $vars(adk_dir)/stdcells.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-lvt.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-ulvt.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/stdcells-pm.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/iocells.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*-typical*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*tt*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*TT*.lib.gz]]
     "]
 
 if {[llength $list_libs_tt] > 0} {
@@ -102,9 +102,9 @@ if {[llength $list_libs_tt] > 0} {
 
 set list_libs_bc \
     [join "
-        [lsort [glob -nocomplain $vars(adk_dir)/*-bc*.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/*ff*.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/*FF*.lib]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*-bc*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*ff*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*FF*.lib.gz]]
     "]
 
 if {[llength $list_libs_bc] > 0} {
@@ -124,9 +124,9 @@ if {[llength $list_libs_bc] > 0} {
 
 set list_libs_wc \
     [join "
-        [lsort [glob -nocomplain $vars(adk_dir)/*-wc*.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/*ss*.lib]]
-        [lsort [glob -nocomplain $vars(adk_dir)/*SS*.lib]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*-wc*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*ss*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*SS*.lib.gz]]
     "]
 
 if {[llength $list_libs_wc] > 0} {
@@ -222,7 +222,7 @@ if {[lsearch -exact $vars(rc_corners) "rcbest"] != -1} {
 
 # Use the best case for hold instead if the files are available
 
-if {[file exists $vars(adk_dir)/stdcells-bc.lib]} {
+if {[file exists $vars(adk_dir)/stdcells-bc.lib.gz]} {
   set vars(delay_default,early_library_set)    libs_bc
   if {[lsearch -exact $vars(delay_corners) "delay_best"] != -1} {
     set vars(delay_best,early_library_set)    libs_bc

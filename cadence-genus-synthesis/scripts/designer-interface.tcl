@@ -64,8 +64,8 @@ set list_libs_tt \
         [lsort [glob -nocomplain $vars(adk_dir)/stdcells-pm.lib.gz]]
         [lsort [glob -nocomplain $vars(adk_dir)/iocells.lib.gz]]
         [lsort [glob -nocomplain $vars(adk_dir)/*-typical*.lib.gz]]
-        [lsort [glob -nocomplain inputs/*tt*.lib.gz]]
-        [lsort [glob -nocomplain inputs/*TT*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*tt*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*TT*.lib.gz]]
     "]
 
 if {[llength $list_libs_tt] > 0} {
@@ -87,8 +87,8 @@ if {[llength $list_libs_tt] > 0} {
 set list_libs_bc \
     [join "
         [lsort [glob -nocomplain $vars(adk_dir)/*-bc*.lib.gz]]
-        [lsort [glob -nocomplain inputs/*ff*.lib.gz]]
-        [lsort [glob -nocomplain inputs/*FF*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*ff*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*FF*.lib.gz]]
     "]
 
 if {[llength $list_libs_bc] > 0} {
@@ -109,8 +109,8 @@ if {[llength $list_libs_bc] > 0} {
 set list_libs_wc \
     [join "
         [lsort [glob -nocomplain $vars(adk_dir)/*-wc*.lib.gz]]
-        [lsort [glob -nocomplain inputs/*ss*.lib.gz]]
-        [lsort [glob -nocomplain inputs/*SS*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*ss*.lib.gz]]
+        [lsort [glob -nocomplain $vars(adk_dir)/*SS*.lib.gz]]
     "]
 
 if {[llength $list_libs_wc] > 0} {
@@ -130,7 +130,6 @@ set vars(lef_files) \
     [lsort [glob -nocomplain $vars(adk_dir)/stdcells.lef]]
     [lsort [glob -nocomplain $vars(adk_dir)/stdcells-pm.lef]]
     [lsort [glob -nocomplain $vars(adk_dir)/*.lef]]
-    [lsort [glob -nocomplain inputs/*.lef]]
 "]
 
 puts "INFO: Found LEF files $vars(lef_files)"
