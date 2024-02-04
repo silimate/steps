@@ -14,4 +14,4 @@ set_attribute hdl_bus_wire_naming_style %s_%d
 set_attribute bit_blasted_port_style %s_%d /
 
 # elaborate $design_name -params $params
-elaborate
+elaborate $design_name
