@@ -60,7 +60,7 @@ parameters:
   flatten_effort: 0
   read_hdl_defines: ""
   order: designer-interface.tcl,setup-session.tcl,read-design.tcl,constraints.tcl,compile.tcl,generate-results.tcl
-  params:
+  params: ""
 
 #-------------------------------------------------------------------------
 # Debug
