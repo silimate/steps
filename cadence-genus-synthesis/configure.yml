@@ -21,6 +21,7 @@ inputs:
   - constraints.tcl
 
 outputs:
+  - adk/
   - design.v
   - design.sdc
   - design.sdf
@@ -38,6 +39,7 @@ outputs:
 
 commands:
   - mkdir -p outputs/rpts
+  - cp -Lrf inputs/adk outputs
   - genus -no_gui -f START.tcl -log logs/genus.log
   - mv outputs/*.rpt outputs/rpts
   - mv outputs/design.*.sdc outputs/design.sdc
