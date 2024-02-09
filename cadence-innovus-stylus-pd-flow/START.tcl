@@ -2,7 +2,7 @@
 read_flow inputs/flow.yaml
 
 # Read design information from Genus
-read_db inputs/dbs/genus.cdb/cmn/
+read_db inputs/dbs/genus.cdb/syn/*.db
 
 # Run implementation flow
 run_flow -flow implementation
