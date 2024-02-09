@@ -41,7 +41,6 @@ commands:
   - echo
   - echo Setting up configs...
   - cp -r inputs/floorplan/ .
-  - cp -r inputs/constraints/ .
   - cp inputs/config/*.tcl inputs/
   - cp inputs/config/*.yaml inputs/
   - sed -i 's|/silimate/build/.*/dbs|inputs/dbs|' inputs/dbs/genus.cdb/cmn/*.mmmc.tcl
