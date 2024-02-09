@@ -17,10 +17,10 @@ container: silimate/eda-docker:latest
 
 inputs:
   - config/
+  - constraints/
   - flow/
   - pdk/
   - floorplan/
-  - genus.db
 
 outputs:
   - config/
@@ -41,6 +41,7 @@ commands:
   - echo
   - echo Setting up configs...
   - cp -r inputs/floorplan/ .
+  - cp -r inputs/constraints/ .
   - cp inputs/config/*.tcl inputs/
   - cp inputs/config/*.yaml inputs/
   - echo
