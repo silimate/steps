@@ -18,6 +18,7 @@ container: silimate/eda-docker:latest
 inputs:
   - config/
   - constraints/
+  - dbs/
   - flow/
   - pdk/
   - floorplan/
