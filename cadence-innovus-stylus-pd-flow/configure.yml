@@ -17,7 +17,6 @@ container: silimate/eda-docker:latest
 
 inputs:
   - config/
-  - constraints/
   - dbs/
   - flow/
   - pdk/
@@ -45,6 +44,7 @@ commands:
   - cp -r inputs/constraints/ .
   - cp inputs/config/*.tcl inputs/
   - cp inputs/config/*.yaml inputs/
+  - sed -i 's|/silimate/build/.*/dbs|inputs/dbs|' inputs/dbs/genus.cdb/cmn/*.mmmc.tcl
   - echo
   - echo Running the physical design flow...
   - innovus -stylus -wait 10 -no_gui -files START.tcl -log outputs/innovus.log

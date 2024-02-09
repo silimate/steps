@@ -27,6 +27,7 @@ outputs:
   - flow/
   - dbs/
   - fv/
+  - genus.db
   - design.v.gz
   - design.g.gz
   - synthesis.log
@@ -54,5 +55,8 @@ commands:
   - echo
   - echo Reorganizing outputs...
   - mkdir -p outputs/constraints/
+  - cp dbs/genus.cdb/syn/*.db outputs/genus.db
+  - cp dbs/genus.cdb/cmn/*.v.gz outputs/design.v.gz
+  - cp dbs/genus.cdb/cmn/syn_cmn/*.g.gz outputs/design.g.gz
   - mv dbs/ outputs/
   - mv fv/ outputs/
