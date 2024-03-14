@@ -2,7 +2,7 @@ name: input-files-from-url
 fullname: File(s) from URL
 description: Fetch file(s) from URL
 category: Inputs
-container: alpine:latest
+container: centos:7
 
 commands:
   - echo "Fetching file(s) from URL..."
